@@ -15,6 +15,7 @@ buildscript {
     }
 }
 // test change made by rajat
+// second test change
 allprojects {
     repositories {
         google()
