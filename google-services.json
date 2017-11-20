@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "763601082655",
+    "firebase_url": "https://cardmaster-b9750.firebaseio.com",
+    "project_id": "cardmaster-b9750",
+    "storage_bucket": "cardmaster-b9750.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763601082655:android:3c1da863bb6c3ecb",
+        "android_client_info": {
+          "package_name": "com.example.ltmillar.cardmaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763601082655-ptge27c3qhvqntubcgbohn7439u8sl6l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_rpIUbMJxO0pu2mC_7ts6fr6aQoNBAUE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
