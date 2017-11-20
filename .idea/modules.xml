@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CardMaster.iml" filepath="$PROJECT_DIR$/CardMaster.iml" />
-      <module fileurl="file://C:\Users\Rajat Bhatia\Desktop\TO626\AndroidStudioProjects\CardMaster\CardMaster.iml" filepath="C:\Users\Rajat Bhatia\Desktop\TO626\AndroidStudioProjects\CardMaster\CardMaster.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Rajat Bhatia\Desktop\TO626\AndroidStudioProjects\CardMaster\app\app.iml" filepath="C:\Users\Rajat Bhatia\Desktop\TO626\AndroidStudioProjects\CardMaster\app\app.iml" />
     </modules>
   </component>
 </project>
