@@ -15,7 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="13dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="85dp"
         android:backgroundTint="@android:color/white"
         android:ems="10"
         android:hint="Email"
@@ -30,7 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="84dp"
         android:backgroundTint="@android:color/white"
         android:ems="10"
         android:hint="Password"
@@ -45,7 +47,8 @@
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="64dp"
         android:background="@android:color/white"
         android:text="Sign Up"
         android:textColor="@color/greeny_blue"
@@ -57,19 +60,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="172dp"
         android:text="Log In"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="159dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="95dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
 
 </android.support.constraint.ConstraintLayout>
