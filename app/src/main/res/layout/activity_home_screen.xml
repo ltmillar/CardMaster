@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ltmillar.cardmaster.HomeScreen">
+
+    <Button
+        android:id="@+id/buttonWhichCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Which Card Shoud I Use?"
+        app:layout_constraintBottom_toTopOf="@+id/buttonManageCards"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonManageCards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manage Cards"
+        app:layout_constraintBottom_toTopOf="@+id/buttonManageProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonWhichCard" />
+
+    <Button
+        android:id="@+id/buttonManageProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manage Profile"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNotifications"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonManageCards" />
+
+    <TextView
+        android:id="@+id/textViewNotifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notifications"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonManageProfile" />
+</android.support.constraint.ConstraintLayout>
