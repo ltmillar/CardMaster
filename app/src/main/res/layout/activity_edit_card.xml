@@ -58,7 +58,7 @@
     <EditText
         android:id="@+id/editCashback1"
         android:layout_width="126dp"
-        android:layout_height="44"
+        android:layout_height="44dp"
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
@@ -67,8 +67,8 @@
 
     <EditText
         android:id="@+id/editCategory2"
-        android:layout_width="195"
-        android:layout_height="44"
+        android:layout_width="195dp"
+        android:layout_height="44dp"
         android:ems="10"
         android:hint="Category 2"
         android:inputType="textPersonName"
@@ -77,8 +77,8 @@
 
     <EditText
         android:id="@+id/editCashback2"
-        android:layout_width="126"
-        android:layout_height="44"
+        android:layout_width="126dp"
+        android:layout_height="44dp"
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
@@ -87,8 +87,8 @@
 
     <EditText
         android:id="@+id/editCategory3"
-        android:layout_width="195"
-        android:layout_height="44"
+        android:layout_width="195dp"
+        android:layout_height="44dp"
         android:ems="10"
         android:hint="Category 3"
         android:inputType="textPersonName"
@@ -97,8 +97,8 @@
 
     <EditText
         android:id="@+id/editCashback3"
-        android:layout_width="126"
-        android:layout_height="44"
+        android:layout_width="126dp"
+        android:layout_height="44dp"
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
