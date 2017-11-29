@@ -1,7 +1,9 @@
 package com.example.ltmillar.cardmaster;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +38,15 @@ public class HomeScreen extends AppCompatActivity {
         buttonManageCards = (Button) findViewById(R.id.buttonManageCards);
         buttonManageProfile = (Button) findViewById(R.id.buttonManageProfile);
         textViewNotifications = (TextView) findViewById(R.id.textViewNotifications);
+
+        buttonManageCards.setOnClickListener(
+                new View.OnClickListener(){
+                    public void onClick(View v){
+                        Intent intent = new Intent(HomeScreen.this, ManageCards.class);
+                        startActivity(intent);
+                    }
+                }
+        );
 
 
     }

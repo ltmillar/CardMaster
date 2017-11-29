@@ -5,14 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.ltmillar.cardmaster.EditCard"
+    app:theme="@style/ToolBarStyle"
     tools:layout_editor_absoluteY="81dp">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/greeny_blue" />
 
     <EditText
         android:id="@+id/editCardName"
         android:layout_width="226dp"
         android:layout_height="44dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:hint="Enter Card Name"
         android:inputType="textPersonName"
@@ -25,7 +32,7 @@
         android:layout_width="120dp"
         android:layout_height="33dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="68dp"
         android:text="Card Name"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +50,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/textViewCashback"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="162dp" />
+        tools:layout_editor_absoluteY="190dp" />
 
     <TextView
         android:id="@+id/textViewCashback"
@@ -67,8 +74,8 @@
         android:hint="Category 1"
         android:inputType="textPersonName"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="200dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="222dp" />
 
     <EditText
         android:id="@+id/editCashback1"
@@ -77,8 +84,8 @@
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="200dp" />
+        tools:layout_editor_absoluteX="232dp"
+        tools:layout_editor_absoluteY="222dp" />
 
     <EditText
         android:id="@+id/editCategory2"
@@ -87,8 +94,8 @@
         android:ems="10"
         android:hint="Category 2"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="252dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="274dp" />
 
     <EditText
         android:id="@+id/editCashback2"
@@ -97,8 +104,8 @@
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="252dp" />
+        tools:layout_editor_absoluteX="232dp"
+        tools:layout_editor_absoluteY="274dp" />
 
     <EditText
         android:id="@+id/editCategory3"
@@ -107,8 +114,8 @@
         android:ems="10"
         android:hint="Category 3"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="304dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="326dp" />
 
     <EditText
         android:id="@+id/editCashback3"
@@ -117,8 +124,8 @@
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="304dp" />
+        tools:layout_editor_absoluteX="232dp"
+        tools:layout_editor_absoluteY="326dp" />
 
     <Button
         android:id="@+id/buttonConfirm"
@@ -128,7 +135,7 @@
         android:text="Confirm"
         android:textColor="@android:color/white"
         tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="384dp" />
+        tools:layout_editor_absoluteY="399dp" />
 
     <Button
         android:id="@+id/buttonClear"
@@ -136,7 +143,7 @@
         android:layout_height="wrap_content"
         android:text="Clear"
         tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="447dp" />
+        tools:layout_editor_absoluteY="462dp" />
 
     <EditText
         android:id="@+id/editBankName"
@@ -148,16 +155,16 @@
         android:inputType="textPersonName"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="97dp" />
+        tools:layout_editor_absoluteY="118dp" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="100dp"
         android:layout_height="34dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="40dp"
         android:text="Bank"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="102dp" />
+        tools:layout_editor_absoluteY="128dp" />
 
 </android.support.constraint.ConstraintLayout>
