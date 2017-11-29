@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity" />
-        <activity android:name=".EditCard"></activity>
+        <activity android:name=".EditCard" />
+        <activity android:name=".HomeScreen"></activity>
     </application>
 
 </manifest>
