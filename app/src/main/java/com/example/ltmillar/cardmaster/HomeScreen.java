@@ -3,11 +3,16 @@ package com.example.ltmillar.cardmaster;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
+import android.support.v4.app.Fragment;
 
 public class HomeScreen extends AppCompatActivity {
 
@@ -20,7 +25,6 @@ public class HomeScreen extends AppCompatActivity {
     private TextView textViewNotifications;
 
 
-
 // changes!
 
 
@@ -29,6 +33,7 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
+//set up title
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
         mActionBarToolbar.setTitle("Homepage");
         setSupportActionBar(mActionBarToolbar);
@@ -47,6 +52,31 @@ public class HomeScreen extends AppCompatActivity {
                     }
                 }
         );
+//nav bar action
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.menu_search:
+                                Toast.makeText(HomeScreen.this, "Search", Toast.LENGTH_SHORT).show();
+
+                                break;
+
+                            case R.id.menu_cards:
+                                startActivity(new Intent(HomeScreen.this, ManageCards.class));
+                                break;
+
+                            case R.id.menu_profile:
+                                Toast.makeText(HomeScreen.this, "Profile", Toast.LENGTH_SHORT).show();
+
+                                break;
+
+                        }
+                        return true;
+                    }
+                });
 
 
     }
