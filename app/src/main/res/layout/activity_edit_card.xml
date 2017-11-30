@@ -4,15 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ltmillar.cardmaster.EditCard"
     app:theme="@style/ToolBarStyle"
+    tools:context="com.example.ltmillar.cardmaster.EditCard"
     tools:layout_editor_absoluteY="81dp">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/greeny_blue" />
+        android:layout_marginBottom="72dp"
+        android:background="@color/greeny_blue"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editCardName"
@@ -42,15 +47,17 @@
         android:id="@+id/textViewCategory"
         android:layout_width="223dp"
         android:layout_height="28dp"
+        android:layout_marginBottom="4dp"
         android:layout_marginEnd="1dp"
         android:layout_marginStart="9dp"
         android:background="@android:color/holo_blue_dark"
         android:text="    Category"
         android:textColor="@android:color/white"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/editCashback1"
         app:layout_constraintEnd_toStartOf="@+id/textViewCashback"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="190dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textViewCashback"
@@ -68,82 +75,113 @@
 
     <EditText
         android:id="@+id/editCategory1"
-        android:layout_width="195dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Category 1"
         android:inputType="textPersonName"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="222dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/editCashback1"
+        app:layout_constraintEnd_toStartOf="@+id/editCashback1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editCashback1" />
 
     <EditText
         android:id="@+id/editCashback1"
-        android:layout_width="126dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="26dp"
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="232dp"
-        tools:layout_editor_absoluteY="222dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editCashback2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editCategory1"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCategory" />
 
     <EditText
         android:id="@+id/editCategory2"
-        android:layout_width="195dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
+        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
         android:ems="10"
         android:hint="Category 2"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="274dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/editCategory3"
+        app:layout_constraintEnd_toStartOf="@+id/editCashback2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editCategory1" />
 
     <EditText
         android:id="@+id/editCashback2"
-        android:layout_width="126dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="26dp"
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="232dp"
-        tools:layout_editor_absoluteY="274dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editCashback3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editCategory2"
+        app:layout_constraintTop_toBottomOf="@+id/editCashback1" />
 
     <EditText
         android:id="@+id/editCategory3"
-        android:layout_width="195dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Category 3"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="326dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/editCashback3"
+        app:layout_constraintEnd_toStartOf="@+id/editCashback3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editCashback3" />
 
     <EditText
         android:id="@+id/editCashback3"
-        android:layout_width="126dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
+        android:layout_marginBottom="29dp"
+        android:layout_marginEnd="26dp"
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="232dp"
-        tools:layout_editor_absoluteY="326dp" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonConfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editCategory3"
+        app:layout_constraintTop_toBottomOf="@+id/editCashback2" />
 
     <Button
         android:id="@+id/buttonConfirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:background="@android:color/holo_blue_dark"
         android:text="Confirm"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="399dp" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonClear"
+        app:layout_constraintStart_toStartOf="@+id/buttonClear"
+        app:layout_constraintTop_toBottomOf="@+id/editCashback3" />
 
     <Button
         android:id="@+id/buttonClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="57dp"
         android:text="Clear"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="462dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonConfirm" />
 
     <EditText
         android:id="@+id/editBankName"
@@ -154,17 +192,19 @@
         android:hint="Enter Bank Name"
         android:inputType="textPersonName"
         android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="118dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="100dp"
-        android:layout_height="34dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="28dp"
         android:layout_marginStart="40dp"
         android:text="Bank"
         android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewCategory"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="128dp" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
 </android.support.constraint.ConstraintLayout>
