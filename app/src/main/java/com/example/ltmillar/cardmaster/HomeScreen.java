@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 
 public class HomeScreen extends AppCompatActivity {
 
@@ -23,10 +25,8 @@ public class HomeScreen extends AppCompatActivity {
     private Button buttonManageCards;
     private Button buttonManageProfile;
     private TextView textViewNotifications;
-
-
-// changes!
-
+    private int mMenuId;
+    private BottomNavigationView mBtmView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,25 +53,38 @@ public class HomeScreen extends AppCompatActivity {
                 }
         );
 //nav bar action
+
+        mBtmView = (BottomNavigationView) findViewById(R.id.navigation);
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        bottomNavigationView.getMenu().findItem(R.id.menu_home).setChecked(true);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                        mMenuId = item.getItemId();
+
+                        for (int i = 0; i < mBtmView.getMenu().size(); i++) {
+                            MenuItem menuItem = mBtmView.getMenu().getItem(i);
+                            boolean isChecked = menuItem.getItemId() == item.getItemId();
+                            menuItem.setChecked(isChecked);
+                        }
+
                         switch (item.getItemId()) {
                             case R.id.menu_search:
                                 Toast.makeText(HomeScreen.this, "Search", Toast.LENGTH_SHORT).show();
 
-                                break;
+                                return true;
 
                             case R.id.menu_cards:
                                 startActivity(new Intent(HomeScreen.this, ManageCards.class));
-                                break;
+                                return true;
 
                             case R.id.menu_profile:
                                 Toast.makeText(HomeScreen.this, "Profile", Toast.LENGTH_SHORT).show();
 
-                                break;
+                                return true;
 
                         }
                         return true;
