@@ -18,13 +18,14 @@ import android.view.ViewGroup;
 
 public class HomeScreen extends AppCompatActivity {
 
-    Toolbar mActionBarToolbar;
 
     //Declare Variables
     private Button buttonWhichCard;
     private Button buttonManageCards;
     private Button buttonManageProfile;
     private TextView textViewNotifications;
+
+    Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
 
