@@ -7,6 +7,7 @@
     app:theme="@style/ToolBarStyle"
     tools:context="com.example.ltmillar.cardmaster.ManageCards">
 
+ <!--Customized Toolbar Begins-->
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -17,7 +18,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+<!--Customized Toolbar Ends-->
 
+<!--Navigation bar begins-->
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="0dp"
@@ -38,7 +41,7 @@
             tools:layout_editor_absoluteY="511dp" />
 
     </FrameLayout>
-
+<!--Navigation bar ends-->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="0dp"
