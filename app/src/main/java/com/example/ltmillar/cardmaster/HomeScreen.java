@@ -34,11 +34,12 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-//set up title
+// Customized tool bar begins
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
         mActionBarToolbar.setTitle("Homepage");
         setSupportActionBar(mActionBarToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+// Customized tool bar ends
 
         buttonWhichCard = (Button) findViewById(R.id.buttonWhichCard);
         buttonManageCards = (Button) findViewById(R.id.buttonManageCards);
@@ -53,12 +54,12 @@ public class HomeScreen extends AppCompatActivity {
                     }
                 }
         );
-//nav bar action
 
+//Navigation bar begins
         mBtmView = (BottomNavigationView) findViewById(R.id.navigation);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
-        bottomNavigationView.getMenu().findItem(R.id.menu_home).setChecked(true);
+        bottomNavigationView.getMenu().findItem(R.id.menu_home).setChecked(true); //Change the id that you want to select
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -83,7 +84,7 @@ public class HomeScreen extends AppCompatActivity {
                                 return true;
 
                             case R.id.menu_profile:
-                                Toast.makeText(HomeScreen.this, "Profile", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(HomeScreen.this, Profile.class));
 
                                 return true;
 
@@ -91,6 +92,7 @@ public class HomeScreen extends AppCompatActivity {
                         return true;
                     }
                 });
+//Navigation bar ends
 
 
     }
