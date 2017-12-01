@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="category_list">Choose a Category</string>
+
+    <string-array name="category_list">
+        <item>Grocery</item>
+        <item>Discount Retail</item>
+        <item>Online Grocery</item>
+        <item>Entertainment</item>
+        <item>Wholesale Retail</item>
+        <item>Electronics</item>
+        <item>Gas</item>
+    </string-array>
+
+</resources>
