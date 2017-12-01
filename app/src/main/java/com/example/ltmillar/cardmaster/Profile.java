@@ -5,12 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class Profile extends AppCompatActivity {
+public class Profile extends Activity {
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
@@ -23,8 +22,8 @@ public class Profile extends AppCompatActivity {
 // Customized tool bar begins
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
         mActionBarToolbar.setTitle("Profile");
-        setSupportActionBar(mActionBarToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //setSupportActionBar(mActionBarToolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 // Customized tool bar ends
 
 //Navigation bar begins
