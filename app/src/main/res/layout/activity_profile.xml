@@ -73,7 +73,7 @@
 
     <Button
         android:id="@+id/buttonEditEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Edit"
         app:layout_constraintBottom_toTopOf="@+id/button3"
@@ -87,7 +87,7 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Edit"
         app:layout_constraintBottom_toTopOf="@+id/buttonViewNotifications"
@@ -101,7 +101,7 @@
 
     <Button
         android:id="@+id/buttonViewNotifications"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="View"
         app:layout_constraintBottom_toTopOf="@+id/buttonViewHelp"
@@ -115,7 +115,7 @@
 
     <Button
         android:id="@+id/buttonViewHelp"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="View Help"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -141,7 +141,8 @@
             app:itemTextColor="@drawable/selector"
             app:menu="@menu/bottom_nav_items"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="511dp" />
+            tools:layout_editor_absoluteY="511dp"
+            android:background="@android:color/white"/>
 
     </FrameLayout>
     <!--Navigation bar ends-->

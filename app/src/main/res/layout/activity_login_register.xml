@@ -48,13 +48,13 @@
         android:layout_height="48dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="28dp"
-        android:background="@android:color/white"
         android:text="Sign Up"
-        android:textColor="@color/greeny_blue"
         app:layout_constraintBottom_toTopOf="@+id/textViewLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/button_main"
+        android:textColor="@color/dark_turquoise"/>
 
     <TextView
         android:id="@+id/textViewLogin"

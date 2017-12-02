@@ -72,6 +72,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonManageProfile" />
 
+
  <!--Navigation bar begins-->
     <FrameLayout
         android:layout_width="match_parent"
@@ -87,9 +88,11 @@
             app:itemTextColor="@drawable/selector"
             app:menu="@menu/bottom_nav_items"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="511dp" />
+            tools:layout_editor_absoluteY="511dp"
+            android:background="@android:color/white"/>
 
     </FrameLayout>
+
  <!--Navigation bar ends-->
 
 </android.support.constraint.ConstraintLayout>
