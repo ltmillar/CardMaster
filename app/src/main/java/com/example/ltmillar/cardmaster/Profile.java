@@ -48,9 +48,10 @@ public class Profile extends AppCompatActivity {
                         switch (item.getItemId()) {
                             case R.id.menu_home:
                                 startActivity(new Intent(Profile.this, HomeScreen.class));
+                                return true;
 
                             case R.id.menu_search:
-                                Toast.makeText(Profile.this, "Search", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(Profile.this, Search.class));
 
                                 return true;
 

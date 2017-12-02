@@ -52,6 +52,22 @@ public class HomeScreen extends AppCompatActivity {
                     }
                 }
         );
+        buttonWhichCard.setOnClickListener(
+                new View.OnClickListener(){
+                    public void onClick(View v){
+                        Intent intent = new Intent(HomeScreen.this, Search.class);
+                        startActivity(intent);
+                    }
+                }
+        );
+        buttonManageProfile.setOnClickListener(
+                new View.OnClickListener(){
+                    public void onClick(View v){
+                        Intent intent = new Intent(HomeScreen.this, Profile.class);
+                        startActivity(intent);
+                    }
+                }
+        );
 
 //Navigation bar begins
         mBtmView = (BottomNavigationView) findViewById(R.id.navigation);
@@ -73,7 +89,7 @@ public class HomeScreen extends AppCompatActivity {
 
                         switch (item.getItemId()) {
                             case R.id.menu_search:
-                                Toast.makeText(HomeScreen.this, "Search", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(HomeScreen.this, Search.class));
 
                                 return true;
 

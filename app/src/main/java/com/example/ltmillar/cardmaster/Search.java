@@ -10,8 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class ManageCards extends AppCompatActivity {
-
+public class Search extends AppCompatActivity {
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
@@ -19,12 +18,12 @@ public class ManageCards extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_cards);
+        setContentView(R.layout.activity_search);
 
-// Customized tool bar begins
+        // Customized tool bar begins
 
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mActionBarToolbar.setTitle("Manage Cards"); // Change the title here
+        mActionBarToolbar.setTitle("Search"); // Change the title here
         setSupportActionBar(mActionBarToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 // Cusomized tool bar ends
@@ -33,7 +32,7 @@ public class ManageCards extends AppCompatActivity {
         mBtmView = (BottomNavigationView) findViewById(R.id.navigation);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
-        bottomNavigationView.getMenu().findItem(R.id.menu_cards).setChecked(true); //Change the id that you want to select
+        bottomNavigationView.getMenu().findItem(R.id.menu_search).setChecked(true); //Change the id that you want to select
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -49,18 +48,18 @@ public class ManageCards extends AppCompatActivity {
 
                         switch (item.getItemId()) {
                             case R.id.menu_home:
-                                startActivity(new Intent(ManageCards.this, HomeScreen.class));
+                                startActivity(new Intent(Search.this, HomeScreen.class));
                                 return true;
 
                             case R.id.menu_search:
-                                startActivity(new Intent(ManageCards.this, Search.class));                                return true;
+                                startActivity(new Intent(Search.this, Search.class));                                return true;
 
                             case R.id.menu_cards:
-                                startActivity(new Intent(ManageCards.this, ManageCards.class));
+                                startActivity(new Intent(Search.this, ManageCards.class));
                                 return true;
 
                             case R.id.menu_profile:
-                                startActivity(new Intent(ManageCards.this, Profile.class));
+                                startActivity(new Intent(Search.this, Profile.class));
                                 return true;
 
                         }

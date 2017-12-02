@@ -17,23 +17,29 @@
         <activity android:name=".LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".HomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
 
         </activity>
+
         <activity
             android:name=".EditCard"
             android:parentActivityName=".HomeScreen" />
+
         <activity
             android:name=".ManageCards"
             android:parentActivityName=".HomeScreen" />
-        <activity android:name=".Profile"></activity>
+
+        <activity android:name=".Profile" android:parentActivityName=".HomeScreen"></activity>
+
+        <activity android:name=".Search" android:parentActivityName=".HomeScreen"></activity>
+
     </application>
 
 </manifest>
