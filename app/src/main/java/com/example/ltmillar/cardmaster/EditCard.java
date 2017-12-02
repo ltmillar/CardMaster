@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.widget.Toolbar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class EditCard extends AppCompatActivity {
+public class EditCard extends Activity {
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
@@ -25,8 +23,8 @@ public class EditCard extends AppCompatActivity {
 // Customized tool bar begins
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
         mActionBarToolbar.setTitle("Edit Cards");
-        setSupportActionBar(mActionBarToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        //setSupportActionBar(mActionBarToolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 // Customized tool bar ends
 
 //Navigation bar begins

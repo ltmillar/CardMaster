@@ -9,14 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 
-public class HomeScreen extends AppCompatActivity {
+
+public class HomeScreen extends Activity {
 
 
     //Declare Variables
@@ -37,8 +34,8 @@ public class HomeScreen extends AppCompatActivity {
 // Customized tool bar begins
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
         mActionBarToolbar.setTitle("Homepage");
-        setSupportActionBar(mActionBarToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        //setSupportActionBar(mActionBarToolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 // Customized tool bar ends
 
         buttonWhichCard = (Button) findViewById(R.id.buttonWhichCard);
