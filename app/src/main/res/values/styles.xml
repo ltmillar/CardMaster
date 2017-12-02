@@ -2,6 +2,7 @@
 
     <!-- Color palette -->
     <color name="dark_turquoise">#075663</color>
+    <color name="darker_turquoise">#073F48</color>
     <color name="greeny_blue">#58bca9</color>
     <color name="hint_gray">#A8A8A8</color>
     <color name="warm_gray">#808080</color>
@@ -11,7 +12,6 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@color/dark_turquoise</item>
-        <item name="android:width">250dp</item>
         <item name="android:height">42dp</item>
     </style>
     <!-- Base application theme. -->

@@ -24,7 +24,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/button_home"
+        android:textColor="@android:color/white"
+        android:height="80dp"
+        android:width="300dp"/>
 
     <Button
         android:id="@+id/buttonManageCards"
@@ -35,7 +39,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonWhichCard" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonWhichCard"
+        android:background="@drawable/button_home"
+        android:textColor="@android:color/white"
+        android:height="80dp"
+        android:width="300dp"/>
 
     <Button
         android:id="@+id/buttonManageProfile"
@@ -46,7 +54,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonManageCards" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonManageCards"
+        android:background="@drawable/button_home"
+        android:textColor="@android:color/white"
+        android:height="80dp"
+        android:width="300dp" />
 
     <TextView
         android:id="@+id/textViewNotifications"

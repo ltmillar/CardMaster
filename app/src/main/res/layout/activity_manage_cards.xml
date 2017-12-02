@@ -81,7 +81,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listCards" />
+        app:layout_constraintTop_toBottomOf="@+id/listCards"
+        android:background="@drawable/button_main"
+        android:textColor="@color/dark_turquoise"
+        android:width="250dp"/>
 
 </android.support.constraint.ConstraintLayout>
 
