@@ -28,6 +28,12 @@ public class EditCard extends AppCompatActivity {
 
         buttonConfirm = (Button) findViewById(R.id.buttonConfirm);
         buttonClear = (Button) findViewById(R.id.buttonClear);
+        editCategory1 = (EditText) findViewById(R.id.editCategory1);
+        editCategory2 = (EditText) findViewById(R.id.editCategory2);
+        editCategory3 = (EditText) findViewById(R.id.editCategory3);
+        editCashback1 = (EditText) findViewById(R.id.editCashback1);
+        editCashback2 = (EditText) findViewById(R.id.editCashback2);
+        editCashback3 = (EditText) findViewById(R.id.editCashback3);
 
 
 // Customized tool bar begins
