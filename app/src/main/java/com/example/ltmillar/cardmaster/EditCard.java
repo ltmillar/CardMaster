@@ -8,6 +8,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -15,6 +17,9 @@ public class EditCard extends AppCompatActivity {
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
+    private Button buttonConfirm, buttonClear;
+    private EditText editCategory1, editCategory2, editCategory3, editCashback1, editCashback2, editCashback3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
