@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class ManageCards extends Activity {
+public class ManageCards extends AppCompatActivity {
 
     Toolbar mActionBarToolbar;
     private int mMenuId;
@@ -25,8 +25,8 @@ public class ManageCards extends Activity {
 
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
         mActionBarToolbar.setTitle("Manage Cards"); // Change the title here
-        //setSupportActionBar(mActionBarToolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(mActionBarToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 // Cusomized tool bar ends
 
 //  Navigation bar begins
@@ -53,8 +53,7 @@ public class ManageCards extends Activity {
                                 return true;
 
                             case R.id.menu_search:
-                                Toast.makeText(ManageCards.this, "Search", Toast.LENGTH_SHORT).show(); //Change it to startAcivity
-                                return true;
+                                startActivity(new Intent(ManageCards.this, Search.class));                                return true;
 
                             case R.id.menu_cards:
                                 startActivity(new Intent(ManageCards.this, ManageCards.class));
