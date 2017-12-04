@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -18,13 +19,16 @@ public class EditCard extends AppCompatActivity {
     private int mMenuId;
     private BottomNavigationView mBtmView;
     private Button buttonConfirm, buttonClear;
-    private EditText editCategory1, editCategory2, editCategory3, editCashback1, editCashback2, editCashback3;
-
+    private EditText editCategory1, editCategory2, editCategory3, editCashback1, editCashback2, editCashback3, editCardName, editBankName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_card);
+
+        buttonConfirm = (Button) findViewById(R.id.buttonConfirm);
+        buttonClear = (Button) findViewById(R.id.buttonClear);
+
 
 // Customized tool bar begins
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
