@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class ManageCards extends AppCompatActivity implements View.OnClickListener {
@@ -16,11 +17,15 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
+    private Button buttonAddCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_cards);
+
+        buttonAddCard = (Button) findViewById(R.id.buttonAddCard);
+        buttonAddCard.setOnClickListener(this);
 
 // Customized tool bar begins
 
