@@ -8,18 +8,22 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class EditCard extends AppCompatActivity {
+public class EditCard extends AppCompatActivity implements View.OnClickListener {
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
     private Button buttonConfirm, buttonClear;
-    private EditText editCategory1, editCategory2, editCategory3, editCashback1, editCashback2, editCashback3, editCardName, editBankName;
+    private EditText editCategory1, editCategory2, editCategory3, editCashback1, editCashback2;
+    private EditText editCashback3, editCardName, editBankName, editCardNumber, editExpDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,13 @@ public class EditCard extends AppCompatActivity {
         editCashback1 = (EditText) findViewById(R.id.editCashback1);
         editCashback2 = (EditText) findViewById(R.id.editCashback2);
         editCashback3 = (EditText) findViewById(R.id.editCashback3);
+        editCardName = (EditText) findViewById(R.id.editCardName);
+        editBankName = (EditText) findViewById(R.id.editBankName);
+        editCardNumber = (EditText) findViewById(R.id.editCardNumber);
+        editExpDate = (EditText) findViewById(R.id.editExpDate);
 
+        buttonClear.setOnClickListener(this);
+        buttonConfirm.setOnClickListener(this);
 
 // Customized tool bar begins
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -81,6 +91,36 @@ public class EditCard extends AppCompatActivity {
                     }
                 });
 //Navigation bar ends
+
+    }
+
+    public void onClick (View view) {
+
+        //Initializing Firebase database
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        final DatabaseReference cardRef = db.getReference("Cards");
+
+        if (view == buttonClear) {
+            editExpDate.setText("");
+            editCardNumber.setText("");
+            editBankName.setText("");
+            editCardName.setText("");
+            editCategory1.setText("");
+            editCategory2.setText("");
+            editCategory3.setText("");
+            editCashback1.setText("");
+            editCashback2.setText("");
+            editCashback3.setText("");
+        } else if (view == buttonConfirm) {
+            String cardName = editCardName.getText().toString();
+            String bankName = editBankName.getText().toString();
+            String cardNumber = editCardNumber.getText().toString();
+            String cardExpDate = editExpDate.getText().toString();
+
+            Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate);
+            cardRef.push().setValue(myCard);
+
+        }
 
     }
 }

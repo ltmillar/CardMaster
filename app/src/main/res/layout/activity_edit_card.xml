@@ -1,211 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:theme="@style/ToolBarStyle"
     tools:context="com.example.ltmillar.cardmaster.EditCard"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="25dp">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="0dp"
+        android:layout_width="384dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
-        android:background="@color/greeny_blue"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/greeny_blue" />
 
     <EditText
         android:id="@+id/editCardName"
-        android:layout_width="226dp"
+        android:layout_width="172dp"
         android:layout_height="44dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_alignBaseline="@+id/editBankName"
+        android:layout_alignBottom="@+id/editBankName"
+        android:layout_alignLeft="@+id/editCardNumber"
+        android:layout_alignStart="@+id/editCardNumber"
         android:ems="10"
-        android:hint="Enter Card Name"
+        android:hint="Card Name"
         android:inputType="textPersonName"
         android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="120dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="68dp"
-        android:text="Card Name"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="74dp" />
 
     <TextView
         android:id="@+id/textViewCategory"
-        android:layout_width="223dp"
+        android:layout_width="211dp"
         android:layout_height="28dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginStart="9dp"
+        android:layout_alignBaseline="@+id/textViewCashback"
+        android:layout_alignBottom="@+id/textViewCashback"
+        android:layout_toLeftOf="@+id/textViewCashback"
+        android:layout_toStartOf="@+id/textViewCashback"
         android:background="@android:color/holo_blue_dark"
         android:text="Category"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/editCashback1"
-        app:layout_constraintEnd_toStartOf="@+id/textViewCashback"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="218dp" />
 
     <TextView
         android:id="@+id/textViewCashback"
         android:layout_width="141dp"
         android:layout_height="28dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="1dp"
+        android:layout_above="@+id/editCategory1"
+        android:layout_alignEnd="@+id/editCashback3"
+        android:layout_alignRight="@+id/editCashback3"
+        android:layout_marginBottom="16dp"
         android:background="@android:color/holo_blue_dark"
         android:text="Cashback (%)"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textViewCategory"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewCategory" />
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="218dp" />
 
     <EditText
         android:id="@+id/editCategory1"
-        android:layout_width="0dp"
+        android:layout_width="155dp"
         android:layout_height="44dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginStart="16dp"
+        android:layout_alignBaseline="@+id/editCashback3"
+        android:layout_alignBottom="@+id/editCashback3"
+        android:layout_alignEnd="@+id/editCardNumber"
+        android:layout_alignRight="@+id/editCardNumber"
         android:ems="10"
         android:hint="Category 1"
         android:inputType="textPersonName"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editCashback1"
-        app:layout_constraintEnd_toStartOf="@+id/editCashback1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editCashback1" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="261dp" />
 
     <EditText
         android:id="@+id/editCashback1"
-        android:layout_width="0dp"
+        android:layout_width="166dp"
         android:layout_height="44dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="26dp"
+        android:layout_alignLeft="@+id/editCashback3"
+        android:layout_alignStart="@+id/editCashback3"
+        android:layout_below="@+id/editCashback3"
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editCashback2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editCategory1"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCategory" />
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="261dp" />
 
     <EditText
         android:id="@+id/editCategory2"
-        android:layout_width="0dp"
+        android:layout_width="155dp"
         android:layout_height="44dp"
-        android:layout_marginBottom="52dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
+        android:layout_alignLeft="@+id/editCategory1"
+        android:layout_alignStart="@+id/editCategory1"
+        android:layout_below="@+id/editCategory1"
         android:ems="10"
         android:hint="Category 2"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/editCategory3"
-        app:layout_constraintEnd_toStartOf="@+id/editCashback2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editCategory1" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="308dp" />
 
     <EditText
         android:id="@+id/editCashback2"
-        android:layout_width="0dp"
+        android:layout_width="166dp"
         android:layout_height="44dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="26dp"
+        android:layout_alignLeft="@+id/editCashback1"
+        android:layout_alignStart="@+id/editCashback1"
+        android:layout_below="@+id/editCashback1"
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editCashback3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editCategory2"
-        app:layout_constraintTop_toBottomOf="@+id/editCashback1" />
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="308dp" />
 
     <EditText
         android:id="@+id/editCategory3"
-        android:layout_width="0dp"
+        android:layout_width="155dp"
         android:layout_height="44dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginStart="16dp"
+        android:layout_alignLeft="@+id/editCategory2"
+        android:layout_alignStart="@+id/editCategory2"
+        android:layout_below="@+id/editCategory2"
         android:ems="10"
         android:hint="Category 3"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/editCashback3"
-        app:layout_constraintEnd_toStartOf="@+id/editCashback3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editCashback3" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="360dp" />
 
     <EditText
         android:id="@+id/editCashback3"
-        android:layout_width="0dp"
+        android:layout_width="166dp"
         android:layout_height="44dp"
-        android:layout_marginBottom="29dp"
-        android:layout_marginEnd="26dp"
+        android:layout_alignLeft="@+id/editExpDate"
+        android:layout_alignStart="@+id/editExpDate"
+        android:layout_centerVertical="true"
         android:ems="10"
         android:hint="XX.XX%"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/buttonConfirm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editCategory3"
-        app:layout_constraintTop_toBottomOf="@+id/editCashback2" />
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="360dp" />
 
     <Button
         android:id="@+id/buttonConfirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_above="@+id/buttonClear"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
         android:background="@android:color/holo_blue_dark"
         android:text="Confirm"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/buttonClear"
-        app:layout_constraintStart_toStartOf="@+id/buttonClear"
-        app:layout_constraintTop_toBottomOf="@+id/editCashback3" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="421dp" />
 
     <Button
         android:id="@+id/buttonClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="57dp"
+        android:layout_alignLeft="@+id/buttonConfirm"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/buttonConfirm"
+        android:layout_marginBottom="41dp"
         android:text="Clear"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonConfirm" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="484dp" />
 
     <EditText
         android:id="@+id/editBankName"
-        android:layout_width="226dp"
+        android:layout_width="172dp"
         android:layout_height="44dp"
-        android:layout_marginEnd="16dp"
+        android:layout_above="@+id/editCardNumber"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
         android:ems="10"
-        android:hint="Enter Bank Name"
+        android:hint="Bank Name"
         android:inputType="textPersonName"
         android:textSize="22sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/editCardName"
+        app:layout_constraintTop_toTopOf="@+id/editCardName"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="196dp" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="100dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="28dp"
-        android:layout_marginStart="40dp"
-        android:text="Bank"
+    <EditText
+        android:id="@+id/editCardNumber"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editExpDate"
+        android:layout_alignBottom="@+id/editExpDate"
+        android:layout_alignLeft="@+id/textViewCategory"
+        android:layout_alignStart="@+id/textViewCategory"
+        android:ems="10"
+        android:hint="Last 4 Digits"
+        android:inputType="textPersonName"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewCategory"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="142dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/editExpDate"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewCategory"
+        android:layout_alignLeft="@+id/editBankName"
+        android:layout_alignStart="@+id/editBankName"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="Exp Date"
+        android:inputType="textPersonName"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editCardNumber"
+        app:layout_constraintTop_toTopOf="@+id/editCardNumber"
+        tools:layout_editor_absoluteX="196dp" />
+
+</RelativeLayout>
