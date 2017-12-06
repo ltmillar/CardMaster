@@ -17,6 +17,9 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EditCard extends AppCompatActivity implements View.OnClickListener {
     Toolbar mActionBarToolbar;
     private int mMenuId;
@@ -101,6 +104,7 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
         //Initializing Firebase database
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         final DatabaseReference cardRef = db.getReference("Cards");
+        final DatabaseReference categoryRef = db.getReference("Category");
 
         if (view == buttonClear) {
             editExpDate.setText("");
@@ -119,8 +123,30 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
             String cardNumber = editCardNumber.getText().toString();
             String cardExpDate = editExpDate.getText().toString();
 
-            Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, "", "" ,"");
-            cardRef.push().setValue(myCard);
+            String categoryOne = editCategory1.getText().toString();
+            String cashbackOne = editCashback1.getText().toString();
+            Float cashbackOneFloat = Float.parseFloat(cashbackOne);
+
+            String categoryTwo = editCategory2.getText().toString();
+            String cashbackTwo = editCashback2.getText().toString();
+            Float cashbackTwoFloat = Float.parseFloat(cashbackTwo);
+
+            String categoryThree = editCategory3.getText().toString();
+            String cashbackThree = editCashback3.getText().toString();
+            Float cashbackThreeFloat = Float.parseFloat(cashbackThree);
+
+            List categoryLst = new ArrayList();
+
+            Category myCategoryOne = new Category(categoryOne, cashbackOne);
+            categoryLst.add(myCategoryOne);
+            Category myCategoryTwo = new Category(categoryTwo, cashbackTwo);
+            categoryLst.add(myCategoryTwo);
+            Category myCategoryThree = new Category(categoryThree, cashbackThree);
+            categoryLst.add(myCategoryThree);
+
+            Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, categoryLst);
+
+            cardRef.child("Card").push().setValue(myCard);
             Toast.makeText(EditCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
 
         }
