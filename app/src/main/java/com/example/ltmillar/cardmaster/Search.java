@@ -29,8 +29,7 @@ public class Search extends AppCompatActivity implements View.OnClickListener{
 
        // Does this find the value?
        spinnerCatList = (Spinner) findViewById(R.id.spinnerCatList);
-
-
+       spinnerCatList.setOnClickListener(this);
 
         // Customized tool bar begins
 
@@ -85,7 +84,8 @@ public class Search extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View view) {
         if (view == buttonWhichCard){
             // identify the category
-
+            String spinnerCat = spinnerCatList.getSelectedItem().toString();
+            Toast.makeText(Search.this, "Selection is: " + spinnerCat, Toast.LENGTH_SHORT).show();
             // look up cards
             // find the card with the highest %
             // update the text field
