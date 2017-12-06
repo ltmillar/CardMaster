@@ -11,7 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class Search extends AppCompatActivity implements View.OnClickListener{
     Toolbar mActionBarToolbar;
@@ -19,6 +22,7 @@ public class Search extends AppCompatActivity implements View.OnClickListener{
     private BottomNavigationView mBtmView;
     private Button buttonWhichCard;
     private Spinner spinnerCatList;
+    private TextView textViewSearchResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +30,11 @@ public class Search extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_search);
 
        buttonWhichCard = (Button) findViewById(R.id.buttonWhichCard);
+        textViewSearchResults = (TextView) findViewById(R.id.textViewSearchResults);
 
        // Does this find the value?
        spinnerCatList = (Spinner) findViewById(R.id.spinnerCatList);
-       spinnerCatList.setOnClickListener(this);
+       buttonWhichCard.setOnClickListener(this);
 
         // Customized tool bar begins
 
@@ -63,7 +68,8 @@ public class Search extends AppCompatActivity implements View.OnClickListener{
                                 return true;
 
                             case R.id.menu_search:
-                                startActivity(new Intent(Search.this, Search.class));                                return true;
+                                startActivity(new Intent(Search.this, Search.class));
+                                return true;
 
                             case R.id.menu_cards:
                                 startActivity(new Intent(Search.this, ManageCards.class));
@@ -84,11 +90,18 @@ public class Search extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View view) {
         if (view == buttonWhichCard){
             // identify the category
-            String spinnerCat = spinnerCatList.getSelectedItem().toString();
-            Toast.makeText(Search.this, "Selection is: " + spinnerCat, Toast.LENGTH_SHORT).show();
+            String spinnerCatValue = spinnerCatList.getSelectedItem().toString();
+            Toast.makeText(Search.this, "Selection is: " + spinnerCatValue, Toast.LENGTH_SHORT).show();
             // look up cards
+
+
             // find the card with the highest %
+            Card fakeCard = new Card("Discover Card", "US Bank", "1234", "12/24", "1%", "2%", "3%");
+//public Card (String cardName, String bankName, String cardNumber, String cardExpDate, String category1Percent, String category2Percent, String category3Percent) {
+
             // update the text field
+            textViewSearchResults.setText("The best card to use is \n" +
+                    fakeCard.bankName + " with rewards: " + fakeCard.category1 + " at " + fakeCard.category1Percent);
 
         }
 
