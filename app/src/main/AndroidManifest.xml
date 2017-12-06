@@ -30,7 +30,7 @@
 
         <activity
             android:name=".EditCard"
-            android:parentActivityName=".HomeScreen" />
+            android:parentActivityName=".ManageCards" />
 
         <activity
             android:name=".ManageCards"

@@ -8,18 +8,24 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
-public class ManageCards extends AppCompatActivity {
+public class ManageCards extends AppCompatActivity implements View.OnClickListener {
 
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
+    private Button buttonAddCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_cards);
+
+        buttonAddCard = (Button) findViewById(R.id.buttonAddCard);
+        buttonAddCard.setOnClickListener(this);
 
 // Customized tool bar begins
 
@@ -53,7 +59,8 @@ public class ManageCards extends AppCompatActivity {
                                 return true;
 
                             case R.id.menu_search:
-                                startActivity(new Intent(ManageCards.this, Search.class));                                return true;
+                                startActivity(new Intent(ManageCards.this, Search.class));
+                                return true;
 
                             case R.id.menu_cards:
                                 startActivity(new Intent(ManageCards.this, ManageCards.class));
@@ -68,5 +75,14 @@ public class ManageCards extends AppCompatActivity {
                     }
                 });
 //  Navigation bar Ends
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v == buttonAddCard) {
+            Intent goToEditCards = new Intent(this, EditCard.class);
+            this.startActivity(goToEditCards);
+        }
     }
 }
