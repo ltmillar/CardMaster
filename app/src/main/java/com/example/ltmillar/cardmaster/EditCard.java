@@ -50,14 +50,14 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
         mActionBarToolbar.setTitle("Edit Cards");
         setSupportActionBar(mActionBarToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 // Customized tool bar ends
 
-//Navigation bar begins
-       /* mBtmView = (BottomNavigationView) findViewById(R.id.navigation);
+//  Navigation bar begins
+        mBtmView = (BottomNavigationView) findViewById(R.id.navigation);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
-       // bottomNavigationView.getMenu().findItem(R.id.menu_cards).setChecked(true); //Change the id that you want to select
+        bottomNavigationView.getMenu().findItem(R.id.menu_cards).setChecked(true); //Change the id that you want to select
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -72,9 +72,12 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
                         }
 
                         switch (item.getItemId()) {
-                            case R.id.menu_search:
-                                Toast.makeText(EditCard.this, "Search", Toast.LENGTH_SHORT).show();
+                            case R.id.menu_home:
+                                startActivity(new Intent(EditCard.this, HomeScreen.class));
+                                return true;
 
+                            case R.id.menu_search:
+                                startActivity(new Intent(EditCard.this, Search.class));
                                 return true;
 
                             case R.id.menu_cards:
@@ -83,14 +86,13 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
 
                             case R.id.menu_profile:
                                 startActivity(new Intent(EditCard.this, Profile.class));
-
                                 return true;
 
                         }
                         return true;
                     }
-                });*/
-//Navigation bar ends
+                });
+//  Navigation bar Ends
 
     }
 
@@ -117,7 +119,7 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
             String cardNumber = editCardNumber.getText().toString();
             String cardExpDate = editExpDate.getText().toString();
 
-            Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate);
+            Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, "", "" ,"");
             cardRef.push().setValue(myCard);
             Toast.makeText(EditCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
 
