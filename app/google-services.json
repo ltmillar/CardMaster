@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "763601082655-blhisju71o82tbav9b9t9aa1efnorpcg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ltmillar.cardmaster",
+            "certificate_hash": "3556dcc944ef7cec2ee96f3b21987b5239d54539"
+          }
+        },
+        {
           "client_id": "763601082655-o55fh616spud73ree56ritlteubqab6l.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
