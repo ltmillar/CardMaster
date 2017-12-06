@@ -8,17 +8,29 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-public class Search extends AppCompatActivity {
+public class Search extends AppCompatActivity implements View.OnClickListener{
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
+    private Button buttonWhichCard;
+    private Spinner spinnerCatList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+       buttonWhichCard = (Button) findViewById(R.id.buttonWhichCard);
+
+       // Does this find the value?
+       spinnerCatList = (Spinner) findViewById(R.id.spinnerCatList);
+
+
 
         // Customized tool bar begins
 
@@ -67,5 +79,18 @@ public class Search extends AppCompatActivity {
                     }
                 });
 //  Navigation bar Ends
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == buttonWhichCard){
+            // identify the category
+
+            // look up cards
+            // find the card with the highest %
+            // update the text field
+
+        }
+
     }
 }
