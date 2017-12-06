@@ -118,8 +118,11 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
             String bankName = editBankName.getText().toString();
             String cardNumber = editCardNumber.getText().toString();
             String cardExpDate = editExpDate.getText().toString();
+            String categoryGroceryPerc = editCashback1.getText().toString();
+            String categoryGasPerc = editCashback2.getText().toString();
+            String categoryeCommPerc = editCashback3.getText().toString();
 
-            Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, "", "" ,"");
+            Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, categoryGroceryPerc, categoryGasPerc, categoryeCommPerc);
             cardRef.push().setValue(myCard);
             Toast.makeText(EditCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
 
