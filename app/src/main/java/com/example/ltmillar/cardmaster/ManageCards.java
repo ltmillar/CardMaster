@@ -59,7 +59,8 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
                                 return true;
 
                             case R.id.menu_search:
-                                startActivity(new Intent(ManageCards.this, Search.class));                                return true;
+                                startActivity(new Intent(ManageCards.this, Search.class));
+                                return true;
 
                             case R.id.menu_cards:
                                 startActivity(new Intent(ManageCards.this, ManageCards.class));
@@ -78,7 +79,10 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-            Intent goToEditCards = new Intent(this,EditCard.class);
+
+        if (v == buttonAddCard) {
+            Intent goToEditCards = new Intent(this, EditCard.class);
             this.startActivity(goToEditCards);
+        }
     }
 }
