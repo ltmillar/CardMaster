@@ -119,6 +119,7 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
 
             Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate);
             cardRef.push().setValue(myCard);
+            Toast.makeText(EditCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
 
         }
 
