@@ -27,13 +27,15 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
         buttonAddCard = (Button) findViewById(R.id.buttonAddCard);
         buttonAddCard.setOnClickListener(this);
 
+
+
 // Customized tool bar begins
 
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
         mActionBarToolbar.setTitle("Manage Cards"); // Change the title here
         setSupportActionBar(mActionBarToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-// Cusomized tool bar ends
+// Customized tool bar ends
 
 //  Navigation bar begins
         mBtmView = (BottomNavigationView) findViewById(R.id.navigation);
