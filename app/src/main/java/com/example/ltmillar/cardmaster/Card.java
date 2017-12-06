@@ -24,4 +24,8 @@ public class Card {
         this.category2Percent = category2Percent;
         this.category3Percent = category3Percent;
     }
+
+    public String getCardName(){
+        return cardName;
+    }
 }

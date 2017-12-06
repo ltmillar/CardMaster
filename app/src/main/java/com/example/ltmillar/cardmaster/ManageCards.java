@@ -10,7 +10,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ManageCards extends AppCompatActivity implements View.OnClickListener {
 
@@ -18,6 +23,7 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
     private int mMenuId;
     private BottomNavigationView mBtmView;
     private Button buttonAddCard;
+    private ListView lvCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,14 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
 
         buttonAddCard = (Button) findViewById(R.id.buttonAddCard);
         buttonAddCard.setOnClickListener(this);
+
+        lvCard = (ListView) findViewById(R.id.listCards);
+        Card card  = new Card("CardName", "BankName", "CardNumber", "ExpDate", "Cat", "Cat2", "Cat3");
+        ArrayList<Card> arrayList = new ArrayList<>();
+        arrayList.add(card);
+        CardAdapter cardAdapter = new CardAdapter(this, arrayList);
+        lvCard.setAdapter(cardAdapter);
+
 
 
 
