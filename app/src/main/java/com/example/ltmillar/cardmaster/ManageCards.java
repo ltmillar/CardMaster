@@ -8,9 +8,10 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
-public class ManageCards extends AppCompatActivity {
+public class ManageCards extends AppCompatActivity implements View.OnClickListener {
 
     Toolbar mActionBarToolbar;
     private int mMenuId;
@@ -68,5 +69,11 @@ public class ManageCards extends AppCompatActivity {
                     }
                 });
 //  Navigation bar Ends
+    }
+
+    @Override
+    public void onClick(View v) {
+            Intent goToEditCards = new Intent(this,EditCard.class);
+            this.startActivity(goToEditCards);
     }
 }
