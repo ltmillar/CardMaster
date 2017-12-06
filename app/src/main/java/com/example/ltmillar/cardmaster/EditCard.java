@@ -54,10 +54,10 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
 // Customized tool bar ends
 
 //Navigation bar begins
-        mBtmView = (BottomNavigationView) findViewById(R.id.navigation);
+       /* mBtmView = (BottomNavigationView) findViewById(R.id.navigation);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
-        bottomNavigationView.getMenu().findItem(R.id.menu_cards).setChecked(true); //Change the id that you want to select
+       // bottomNavigationView.getMenu().findItem(R.id.menu_cards).setChecked(true); //Change the id that you want to select
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -89,7 +89,7 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
                         }
                         return true;
                     }
-                });
+                });*/
 //Navigation bar ends
 
     }
