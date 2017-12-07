@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -100,16 +102,17 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
 
         //Initializing Firebase database
         FirebaseDatabase db = FirebaseDatabase.getInstance();
-        final DatabaseReference cardRef = db.getReference("Cards");
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final DatabaseReference cardRef = db.getReference().child(user.getUid()).child("Cards");
 
         if (view == buttonClear) {
             editExpDate.setText("");
             editCardNumber.setText("");
             editBankName.setText("");
             editCardName.setText("");
-            editCategory1.setText("");
-            editCategory2.setText("");
-            editCategory3.setText("");
+            editCategory1.setText("Gas");
+            editCategory2.setText("Groceries");
+            editCategory3.setText("eCommerce");
             editCashback1.setText("");
             editCashback2.setText("");
             editCashback3.setText("");
