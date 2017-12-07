@@ -4,13 +4,10 @@
     <string name="category_list">Choose a Category</string>
 
     <string-array name="category_list">
-        <item>Grocery</item>
-        <item>Discount Retail</item>
-        <item>Online Grocery</item>
-        <item>Entertainment</item>
-        <item>Wholesale Retail</item>
-        <item>Electronics</item>
         <item>Gas</item>
+        <item>Grocery</item>
+        <item>eCommerce</item>
+
     </string-array>
 
 </resources>
