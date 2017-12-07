@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -23,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class ManageCards extends AppCompatActivity implements View.OnClickListener {
+public class ManageCards extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     Toolbar mActionBarToolbar;
     private int mMenuId;
@@ -45,6 +47,9 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
         listViewCard = (ListView) findViewById(R.id.listCards);
         adapter = new ArrayAdapter<String>(this, R.layout.card_list, R.id.textCardName, list);
         listViewCard.setAdapter(adapter);
+
+        listViewCard.setOnItemClickListener(this);
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Cards");
@@ -143,5 +148,10 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
             Intent goToEditCards = new Intent(this, EditCard.class);
             this.startActivity(goToEditCards);
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Toast.makeText(ManageCards.this, "You clicked" + listViewCard.getItemAtPosition(i), Toast.LENGTH_SHORT).show();
     }
 }
