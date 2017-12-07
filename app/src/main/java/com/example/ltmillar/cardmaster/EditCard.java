@@ -103,7 +103,7 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
         //Initializing Firebase database
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        final DatabaseReference cardRef = db.getReference().child(user.getUid()).child("Cards");
+        final DatabaseReference cardRef = db.getReference().child("Users").child(user.getUid()).child("Cards");
 
         if (view == buttonClear) {
             editExpDate.setText("");
