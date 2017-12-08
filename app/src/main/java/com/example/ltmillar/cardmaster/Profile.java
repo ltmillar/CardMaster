@@ -8,17 +8,28 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
-public class Profile extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+
+public class Profile extends AppCompatActivity implements View.OnClickListener{
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
+
+    private Button buttonLogOut, buttonEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        buttonLogOut = (Button) findViewById(R.id.buttonLogOut);
+        buttonLogOut.setOnClickListener(this);
+
+
+
 
 // Customized tool bar begins
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -71,5 +82,14 @@ public class Profile extends AppCompatActivity {
 //Navigation bar ends
 
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == buttonLogOut){
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(Profile.this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 }
