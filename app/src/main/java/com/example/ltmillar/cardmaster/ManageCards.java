@@ -144,9 +144,6 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("card");
 
-        //myRef.push().setValue(textCardName.getText().toString());
-        //textCardName.setText("");
-
         if (v == buttonAddCard) {
             Intent goToEditCards = new Intent(this, EditCard.class);
             this.startActivity(goToEditCards);
@@ -155,6 +152,10 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+        Intent goToCard = new Intent(this, CardInfo.class);
+        //goToCard.putExtra("X","Y");
+        this.startActivity(goToCard);
         Toast.makeText(ManageCards.this, "You clicked" + listViewCard.getItemAtPosition(i), Toast.LENGTH_SHORT).show();
     }
 }
