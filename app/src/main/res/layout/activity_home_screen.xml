@@ -20,52 +20,48 @@
         android:id="@+id/buttonWhichCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:width="300dp"
+        android:height="80dp"
+        android:background="@drawable/button_home"
         android:text="Which Card Shoud I Use?"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/buttonManageCards"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/button_home"
-        android:textColor="@android:color/white"
-        android:height="80dp"
-        android:width="300dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonManageCards"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:width="300dp"
+        android:height="80dp"
+        android:background="@drawable/button_home"
         android:text="Manage Cards"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/buttonManageProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonWhichCard"
-        android:background="@drawable/button_home"
-        android:textColor="@android:color/white"
-        android:height="80dp"
-        android:width="300dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/buttonWhichCard" />
 
     <Button
         android:id="@+id/buttonManageProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:width="300dp"
+        android:height="80dp"
+        android:background="@drawable/button_home"
         android:text="Manage Profile"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/textViewNotifications"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonManageCards"
-        android:background="@drawable/button_home"
-        android:textColor="@android:color/white"
-        android:height="80dp"
-        android:width="300dp" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonManageCards" />
 
     <TextView
         android:id="@+id/textViewNotifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Notifications"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -77,19 +73,20 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent" >
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:background="@android:color/white"
             app:itemIconTint="@drawable/selector"
             app:itemTextColor="@drawable/selector"
             app:menu="@menu/bottom_nav_items"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="511dp"
-            android:background="@android:color/white"/>
+            tools:layout_editor_absoluteY="511dp" />
 
     </FrameLayout>
 
