@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:theme="@style/ToolBarStyle"
+    tools:context="com.example.ltmillar.cardmaster.EditCardPop"
+    tools:layout_editor_absoluteY="25dp">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/greeny_blue" />
+
+    <!--Navigation bar begins-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent" >
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:itemIconTint="@drawable/selector"
+            app:itemTextColor="@drawable/selector"
+            app:menu="@menu/bottom_nav_items"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="511dp"
+            android:background="@android:color/white"/>
+
+    </FrameLayout>
+
+    <!--Navigation bar ends-->
+
+    <EditText
+        android:id="@+id/editCardName"
+        android:layout_width="172dp"
+        android:layout_height="44dp"
+        android:layout_alignBaseline="@+id/editBankName"
+        android:layout_alignBottom="@+id/editBankName"
+        android:layout_toLeftOf="@+id/editBankName"
+        android:layout_toStartOf="@+id/editBankName"
+        android:ems="10"
+        android:hint="Card Name"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="74dp" />
+
+    <TextView
+        android:id="@+id/textViewCategory"
+        android:layout_width="211dp"
+        android:layout_height="28dp"
+        android:layout_alignBaseline="@+id/textViewCashback"
+        android:layout_alignBottom="@+id/textViewCashback"
+        android:layout_alignLeft="@+id/editCardNumber"
+        android:layout_alignStart="@+id/editCardNumber"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Category"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="218dp" />
+
+    <TextView
+        android:id="@+id/textViewCashback"
+        android:layout_width="141dp"
+        android:layout_height="28dp"
+        android:layout_above="@+id/editCategory1"
+        android:layout_alignEnd="@+id/editCashback3"
+        android:layout_alignRight="@+id/editCashback3"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Cashback (%)"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="218dp" />
+
+    <EditText
+        android:id="@+id/editCategory1"
+        android:editable="false"
+        android:layout_width="155dp"
+        android:layout_height="44dp"
+        android:layout_alignBaseline="@+id/editCashback3"
+        android:layout_alignBottom="@+id/editCashback3"
+        android:layout_alignEnd="@+id/editCardNumber"
+        android:layout_alignRight="@+id/editCardNumber"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Grocery"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="261dp" />
+
+    <EditText
+        android:id="@+id/editCashback1"
+        android:layout_width="166dp"
+        android:layout_height="44dp"
+        android:layout_alignLeft="@+id/editCashback3"
+        android:layout_alignStart="@+id/editCashback3"
+        android:layout_below="@+id/editCashback3"
+        android:ems="10"
+        android:hint="XX.XX%"
+        android:inputType="textPersonName"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="261dp" />
+
+    <EditText
+        android:id="@+id/editCategory2"
+        android:editable="false"
+        android:layout_width="155dp"
+        android:layout_height="44dp"
+        android:layout_alignLeft="@+id/editCategory1"
+        android:layout_alignStart="@+id/editCategory1"
+        android:layout_below="@+id/editCategory1"
+        android:ems="10"
+        android:hint="Category 2"
+        android:inputType="textPersonName"
+        android:text="Gas"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="308dp" />
+
+    <EditText
+        android:id="@+id/editCashback2"
+        android:layout_width="166dp"
+        android:layout_height="44dp"
+        android:layout_alignLeft="@+id/editCashback1"
+        android:layout_alignStart="@+id/editCashback1"
+        android:layout_below="@+id/editCashback1"
+        android:ems="10"
+        android:hint="XX.XX%"
+        android:inputType="textPersonName"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="308dp" />
+
+    <EditText
+        android:id="@+id/editCategory3"
+        android:editable="false"
+        android:layout_width="155dp"
+        android:layout_height="44dp"
+        android:layout_alignLeft="@+id/editCategory2"
+        android:layout_alignStart="@+id/editCategory2"
+        android:layout_below="@+id/editCategory2"
+        android:ems="10"
+        android:hint="Category 3"
+        android:inputType="textPersonName"
+        android:text="eCommerce"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="360dp" />
+
+    <EditText
+        android:id="@+id/editCashback3"
+        android:layout_width="166dp"
+        android:layout_height="44dp"
+        android:layout_alignLeft="@+id/editExpDate"
+        android:layout_alignStart="@+id/editExpDate"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:hint="XX.XX%"
+        android:inputType="textPersonName"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="360dp" />
+
+    <Button
+        android:id="@+id/buttonConfirm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonClear"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Confirm"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="421dp" />
+
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonConfirm"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/buttonConfirm"
+        android:layout_marginBottom="60dp"
+        android:text="Clear Contents"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="484dp" />
+
+    <EditText
+        android:id="@+id/editBankName"
+        android:layout_width="172dp"
+        android:layout_height="44dp"
+        android:layout_above="@+id/editExpDate"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="Bank Name"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editCardName"
+        app:layout_constraintTop_toTopOf="@+id/editCardName"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="196dp" />
+
+    <EditText
+        android:id="@+id/editCardNumber"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editExpDate"
+        android:layout_alignBottom="@+id/editExpDate"
+        android:layout_toLeftOf="@+id/editExpDate"
+        android:layout_toStartOf="@+id/editExpDate"
+        android:ems="10"
+        android:hint="Last 4 Digits"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="142dp" />
+
+    <EditText
+        android:id="@+id/editExpDate"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewCategory"
+        android:layout_alignLeft="@+id/editBankName"
+        android:layout_alignStart="@+id/editBankName"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="Exp Date"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editCardNumber"
+        app:layout_constraintTop_toTopOf="@+id/editCardNumber"
+        tools:layout_editor_absoluteX="196dp" />
+
+
+</RelativeLayout>
