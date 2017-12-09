@@ -14,6 +14,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import org.w3c.dom.Text;
 
 public class Search extends AppCompatActivity implements View.OnClickListener{
@@ -88,21 +97,73 @@ public class Search extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final DatabaseReference cardRef = db.getReference().child("Users").child(user.getUid()).child("Cards");
         if (view == buttonWhichCard){
             // identify the category
-            String spinnerCatValue = spinnerCatList.getSelectedItem().toString();
-            Toast.makeText(Search.this, "Selection is: " + spinnerCatValue, Toast.LENGTH_SHORT).show();
-            // look up cards
-
-
-            // find the card with the highest %
-            Card fakeCard = new Card("Discover Card", "US Bank", "1234", "12/24", "1%", "2%", "3%");
-//public Card (String cardName, String bankName, String cardNumber, String cardExpDate, String category1Percent, String category2Percent, String category3Percent) {
-
-            // update the text field
-            textViewSearchResults.setText("The best card to use is \n" +
-                    fakeCard.bankName + " with rewards: " + fakeCard.category1 + " at " + fakeCard.category1Percent);
-
+            final String spinnerCatValue = spinnerCatList.getSelectedItem().toString();
+            if(spinnerCatValue.equals("Gas")) {
+                cardRef.orderByChild("category1Percent").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.getValue() == null){
+                            Toast.makeText(Search.this, "No results found!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(Search.this, "Card Found!", Toast.LENGTH_SHORT).show();
+                            cardRef.orderByChild("category1Percent").addChildEventListener(new ChildEventListener() {
+                                @Override
+                                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                                    Card foundCard = new Card();
+                                    foundCard = dataSnapshot.getValue(Card.class);
+                                    textViewSearchResults.setText("The best card to use is \n" +
+                                            foundCard.cardName + " from bank " + foundCard.bankName + "\nwith rewards: " + foundCard.category1 + " at " + foundCard.category1Percent + " %");}
+                                @Override public void onChildChanged(DataSnapshot dataSnapshot, String s) {}
+                                @Override public void onChildRemoved(DataSnapshot dataSnapshot) {}
+                                @Override public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
+                                @Override public void onCancelled(DatabaseError databaseError) {}});}}
+                    @Override public void onCancelled(DatabaseError databaseError) {}});
+            } else if (spinnerCatValue.equals("Grocery")) {
+                cardRef.orderByChild("category2Percent").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.getValue() == null){
+                            Toast.makeText(Search.this, "No results found!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(Search.this, "Card Found!", Toast.LENGTH_SHORT).show();
+                            cardRef.orderByChild("category2Percent").addChildEventListener(new ChildEventListener() {
+                                @Override
+                                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                                    Card foundCard = new Card();
+                                    foundCard = dataSnapshot.getValue(Card.class);
+                                    textViewSearchResults.setText("The best card to use is \n" +
+                                            foundCard.cardName + " from bank " + foundCard.bankName + "\nwith rewards: " + foundCard.category2 + " at " + foundCard.category2Percent + " %");}
+                                @Override public void onChildChanged(DataSnapshot dataSnapshot, String s) {}
+                                @Override public void onChildRemoved(DataSnapshot dataSnapshot) {}
+                                @Override public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
+                                @Override public void onCancelled(DatabaseError databaseError) {}});}}
+                    @Override public void onCancelled(DatabaseError databaseError) {}});
+            } else if (spinnerCatValue.equals("eCommerce")) {
+                cardRef.orderByChild("category3Percent").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.getValue() == null){
+                            Toast.makeText(Search.this, "No results found!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(Search.this, "Card Found!", Toast.LENGTH_SHORT).show();
+                            cardRef.orderByChild("category3Percent").addChildEventListener(new ChildEventListener() {
+                                @Override
+                                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                                    Card foundCard = new Card();
+                                    foundCard = dataSnapshot.getValue(Card.class);
+                                    textViewSearchResults.setText("The best card to use is \n" +
+                                            foundCard.cardName + " from bank " + foundCard.bankName + "\nwith rewards: " + foundCard.category3 + " at " + foundCard.category3Percent + " %");}
+                                @Override public void onChildChanged(DataSnapshot dataSnapshot, String s) {}
+                                @Override public void onChildRemoved(DataSnapshot dataSnapshot) {}
+                                @Override public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
+                                @Override public void onCancelled(DatabaseError databaseError) {}});}}
+                    @Override public void onCancelled(DatabaseError databaseError) {}});
+            }
         }
 
     }
