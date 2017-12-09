@@ -12,31 +12,29 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/greeny_blue"
-        />
+        android:background="@color/greeny_blue" />
     <!--Customized Toolbar Ends-->
     <ImageView
         android:id="@+id/imageViewProfile"
         android:layout_width="158dp"
         android:layout_height="150dp"
+        android:layout_marginTop="8dp"
         android:src="@android:drawable/sym_def_app_icon"
-        app:layout_constraintBottom_toTopOf="@+id/buttonEditEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/textViewEmail"
-        android:layout_width="57dp"
-        android:layout_height="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Email"
         app:layout_constraintBottom_toTopOf="@+id/textViewPassword"
-        app:layout_constraintEnd_toStartOf="@+id/buttonEditEmail"
+        app:layout_constraintEnd_toStartOf="@+id/textViewUsrEmail"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewProfile"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewProfile" />
 
     <TextView
         android:id="@+id/textViewPassword"
@@ -44,7 +42,7 @@
         android:layout_height="wrap_content"
         android:text="Password"
         app:layout_constraintBottom_toTopOf="@+id/textViewNotifications"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintEnd_toStartOf="@+id/textViewUsrPwd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
@@ -55,7 +53,7 @@
         android:layout_height="wrap_content"
         android:text="Notifications"
         app:layout_constraintBottom_toTopOf="@+id/textViewHelp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonViewNotifications"
+        app:layout_constraintEnd_toStartOf="@+id/checkNotification"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPassword" />
@@ -71,61 +69,22 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewNotifications" />
 
     <Button
-        android:id="@+id/buttonEditEmail"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Edit"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewEmail"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewProfile"
-        android:background="@drawable/button_main"
-        android:textColor="@color/dark_turquoise"
-        />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Edit"
-        app:layout_constraintBottom_toTopOf="@+id/buttonViewNotifications"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewPassword"
-        app:layout_constraintTop_toBottomOf="@+id/buttonEditEmail"
-        android:background="@drawable/button_main"
-        android:textColor="@color/dark_turquoise"
-        />
-
-    <Button
-        android:id="@+id/buttonViewNotifications"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="View"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewNotifications"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        android:background="@drawable/button_main"
-        android:textColor="@color/dark_turquoise"
-        />
-
-    <Button
         android:id="@+id/buttonLogOut"
-        android:layout_width="120dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
         android:background="@drawable/button_main"
         android:text="Log Out"
         android:textColor="@color/dark_turquoise"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/textViewHelp"
-        app:layout_constraintTop_toBottomOf="@+id/buttonViewNotifications" />
+        tools:layout_editor_absoluteX="17dp" />
     <!--Navigation bar begins-->
     <FrameLayout
+        android:id="@+id/frameLayout2"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -143,6 +102,44 @@
             tools:layout_editor_absoluteY="511dp" />
 
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/textViewUsrEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:text="User Email"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUsrPwd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewEmail"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewProfile" />
+
+    <TextView
+        android:id="@+id/textViewUsrPwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="*******"
+        app:layout_constraintBottom_toTopOf="@+id/checkNotification"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewPassword"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUsrEmail" />
+
+    <Button
+        android:id="@+id/checkNotification"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_main"
+        android:text="Check"
+        android:textColor="@color/dark_turquoise"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewNotifications"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUsrPwd" />
     <!--Navigation bar ends-->
 
 </android.support.constraint.ConstraintLayout>
