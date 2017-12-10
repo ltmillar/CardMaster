@@ -28,6 +28,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -46,7 +47,7 @@ public class DeleteCards extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_cards);
+        setContentView(R.layout.activity_delete_cards);
 
 
         listViewCard = (ListView) findViewById(R.id.listCards);
@@ -153,6 +154,10 @@ public class DeleteCards extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final DatabaseReference myRef = database.getReference("Users").child(user.getUid()).child("Books");
+
         selectedItem = adapterView.getItemAtPosition(i).toString();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage("Do you want to remove " + selectedItem + "?");
@@ -162,6 +167,20 @@ public class DeleteCards extends AppCompatActivity implements View.OnClickListen
             public void onClick(DialogInterface dialog, int which) {
                 adapter.remove(selectedItem);
                 adapter.notifyDataSetChanged();
+                myRef.orderByChild("cardName").equalTo(selectedItem).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot cardObject: dataSnapshot.getChildren()) {
+                            cardObject.getRef().removeValue();
+                            myRef.orderByChild("cardName").equalTo(selectedItem).removeEventListener(this);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
                 Toast.makeText(getApplicationContext(), selectedItem+ " has been removed", Toast.LENGTH_SHORT).show();
             }
         });
