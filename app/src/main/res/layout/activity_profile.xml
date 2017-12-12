@@ -29,34 +29,21 @@
         android:id="@+id/textViewEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/textViewPassword"
-        app:layout_constraintEnd_toStartOf="@+id/textViewUsrEmail"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewPassword"
         app:layout_constraintTop_toBottomOf="@+id/imageViewProfile" />
 
     <TextView
         android:id="@+id/textViewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:text="Password"
-        app:layout_constraintBottom_toTopOf="@+id/textViewNotifications"
         app:layout_constraintEnd_toStartOf="@+id/textViewUsrPwd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
-
-    <TextView
-        android:id="@+id/textViewNotifications"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notifications"
-        app:layout_constraintBottom_toTopOf="@+id/textViewHelp"
-        app:layout_constraintEnd_toStartOf="@+id/checkNotification"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPassword" />
 
     <TextView
         android:id="@+id/textViewHelp"
@@ -65,8 +52,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonLogOut"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNotifications" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonLogOut"
@@ -107,39 +93,22 @@
         android:id="@+id/textViewUsrEmail"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="36dp"
         android:text="User Email"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUsrPwd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewEmail"
+        app:layout_constraintEnd_toEndOf="@+id/textViewUsrPwd"
         app:layout_constraintTop_toBottomOf="@+id/imageViewProfile" />
 
     <TextView
         android:id="@+id/textViewUsrPwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="36dp"
         android:text="*******"
-        app:layout_constraintBottom_toTopOf="@+id/checkNotification"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textViewPassword"
         app:layout_constraintTop_toBottomOf="@+id/textViewUsrEmail" />
 
-    <Button
-        android:id="@+id/checkNotification"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_main"
-        android:text="Check"
-        android:textColor="@color/dark_turquoise"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewNotifications"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUsrPwd" />
     <!--Navigation bar ends-->
 
 </android.support.constraint.ConstraintLayout>

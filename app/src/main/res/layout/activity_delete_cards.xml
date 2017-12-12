@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:theme="@style/ToolBarStyle"
-    tools:context="com.example.ltmillar.cardmaster.ManageCards">
+    tools:context="com.example.ltmillar.cardmaster.DeleteCards">
 
     <!--Customized Toolbar Begins-->
     <android.support.v7.widget.Toolbar
@@ -50,7 +50,7 @@
         android:layout_marginBottom="456dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Manage Cards"
+        android:text="Delete Cards"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +60,7 @@
     <ListView
         android:id="@+id/listCards"
         android:layout_width="match_parent"
-        android:layout_height="254dp"
+        android:layout_height="314dp"
         android:layout_marginEnd="4dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="120dp"
@@ -72,32 +72,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.045" />
-
-    <Button
-        android:id="@+id/buttonAddCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="250dp"
-        android:background="@drawable/button_main"
-        android:text="Add Card"
-        android:textColor="@color/dark_turquoise"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listCards"
-        app:layout_constraintVertical_bias="0.15" />
-
-    <Button
-        android:id="@+id/buttonDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:width="250dp"
-        android:background="@drawable/button_main"
-        android:text="Delete Cards"
-        android:textColor="@color/dark_turquoise"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
-        app:layout_constraintStart_toStartOf="@+id/buttonAddCard" />
 
 </android.support.constraint.ConstraintLayout>
 

@@ -28,15 +28,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ManageCards extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class DeleteCards extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
-    private Button buttonAddCard, buttonDelete;
     private ListView listViewCard;
     private String selectedItem;
     private final Context context = this;
@@ -47,19 +47,16 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_cards);
+        setContentView(R.layout.activity_delete_cards);
 
-        buttonAddCard = (Button) findViewById(R.id.buttonAddCard);
-        buttonAddCard.setOnClickListener(this);
-
-        buttonDelete = (Button) findViewById(R.id.buttonDelete);
-        buttonDelete.setOnClickListener(this);
 
         listViewCard = (ListView) findViewById(R.id.listCards);
         adapter = new ArrayAdapter<String>(this, R.layout.card_list, R.id.textCardName, list);
         listViewCard.setAdapter(adapter);
 
         listViewCard.setOnItemClickListener(this);
+
+
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -100,7 +97,7 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
 // Customized tool bar begins
 
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mActionBarToolbar.setTitle("Manage Cards"); // Change the title here
+        mActionBarToolbar.setTitle("Delete Cards"); // Change the title here
         setSupportActionBar(mActionBarToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 // Customized tool bar ends
@@ -125,19 +122,19 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
 
                         switch (item.getItemId()) {
                             case R.id.menu_home:
-                                startActivity(new Intent(ManageCards.this, HomeScreen.class));
+                                startActivity(new Intent(DeleteCards.this, HomeScreen.class));
                                 return true;
 
                             case R.id.menu_search:
-                                startActivity(new Intent(ManageCards.this, Search.class));
+                                startActivity(new Intent(DeleteCards.this, Search.class));
                                 return true;
 
                             case R.id.menu_cards:
-                                startActivity(new Intent(ManageCards.this, ManageCards.class));
+                                startActivity(new Intent(DeleteCards.this, ManageCards.class));
                                 return true;
 
                             case R.id.menu_profile:
-                                startActivity(new Intent(ManageCards.this, Profile.class));
+                                startActivity(new Intent(DeleteCards.this, Profile.class));
                                 return true;
 
                         }
@@ -153,21 +150,47 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("card");
 
-        if (v == buttonAddCard) {
-            Intent goToEditCards = new Intent(this, EditCard.class);
-            this.startActivity(goToEditCards);
-        } else if (v == buttonDelete) {
-            Intent goToDelete = new Intent (this, DeleteCards.class);
-            this.startActivity(goToDelete);
-        }
     }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final DatabaseReference myRef = database.getReference("Users").child(user.getUid()).child("Books");
 
-        Intent goToCard = new Intent(this, CardInfo.class);
-        //goToCard.putExtra("X","Y");
-        this.startActivity(goToCard);
-        Toast.makeText(ManageCards.this, "You clicked" + listViewCard.getItemAtPosition(i), Toast.LENGTH_SHORT).show();
+        selectedItem = adapterView.getItemAtPosition(i).toString();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("Do you want to remove " + selectedItem + "?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                adapter.remove(selectedItem);
+                adapter.notifyDataSetChanged();
+                myRef.orderByChild("cardName").equalTo(selectedItem).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot cardObject: dataSnapshot.getChildren()) {
+                            cardObject.getRef().removeValue();
+                            myRef.orderByChild("cardName").equalTo(selectedItem).removeEventListener(this);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+                Toast.makeText(getApplicationContext(), selectedItem+ " has been removed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
     }
+
 }
