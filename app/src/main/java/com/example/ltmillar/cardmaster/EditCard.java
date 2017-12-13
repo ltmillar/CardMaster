@@ -14,8 +14,12 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class EditCard extends AppCompatActivity implements View.OnClickListener {
     Toolbar mActionBarToolbar;
@@ -122,16 +126,38 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
         final DatabaseReference cardRef = db.getReference().child("Users").child(user.getUid()).child("Cards");
 
         if (view == buttonClear) {
-            editExpDate.setText("");
-            editCardNumber.setText("");
-            editBankName.setText("");
-            editCardName.setText("");
-            editCategory1.setText("Gas");
-            editCategory2.setText("Groceries");
-            editCategory3.setText("eCommerce");
-            editCashback1.setText("");
-            editCashback2.setText("");
-            editCashback3.setText("");
+        final String cardLookupName = editCardName.getText().toString();
+        cardRef.orderByChild("cardName").equalTo(cardLookupName).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getValue() == null) {
+                    Toast.makeText(EditCard.this, "Card Not Found", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(EditCard.this, "Card Updated!", Toast.LENGTH_SHORT).show();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        Card updateCard = new Card();
+                        updateCard = snapshot.getValue(Card.class);
+                        updateCard.bankName = editBankName.getText().toString();
+                        updateCard.cardExpDate = editExpDate.getText().toString();
+                        updateCard.cardLastFourNumber = editCardNumber.getText().toString();
+                        updateCard.category1Percent = editCashback1.getText().toString();
+                        updateCard.category2Percent = editCashback2.getText().toString();
+                        updateCard.category3Percent = editCashback3.getText().toString();
+
+                        String cardKey = snapshot.getKey();
+                        cardRef.child(cardKey).setValue(updateCard);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
         } else if (view == buttonConfirm) {
             String cardName = editCardName.getText().toString();
             String bankName = editBankName.getText().toString();
