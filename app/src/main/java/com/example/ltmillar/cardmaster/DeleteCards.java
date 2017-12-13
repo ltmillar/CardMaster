@@ -192,7 +192,16 @@ public class DeleteCards extends AppCompatActivity implements View.OnClickListen
  /*                       addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot cardObject: dataSnapshot.getChildren()) {
+
+                        if (dataSnapshot.getValue() == null) {
+                            Toast.makeText(DeleteCards.this, "Card not found", Toast.LENGTH_SHORT).show();
+                        } else {
+                            for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                                snapshot.getRef().removeValue();
+                                Toast.makeText(DeleteCards.this, "Card deleted successfully", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        /*for (DataSnapshot cardObject: dataSnapshot.getChildren()) {
                             cardObject.getRef().removeValue();
                             myRef.orderByChild("cardName").equalTo(selectedItem).removeEventListener(this);
                         }
