@@ -12,11 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 public class CardInfo extends Activity implements View.OnClickListener {
     Toolbar mActionBarToolbar;
     private int mMenuId;
@@ -36,9 +31,9 @@ public class CardInfo extends Activity implements View.OnClickListener {
         editCategory1 = (EditText) findViewById(R.id.editCategory1);
         editCategory2 = (EditText) findViewById(R.id.editCategory2);
         editCategory3 = (EditText) findViewById(R.id.editCategory3);
-        editCashback1 = (EditText) findViewById(R.id.editCashback1);
+        editCashback1 = (EditText) findViewById(R.id.editCashback2);
         editCashback2 = (EditText) findViewById(R.id.editCashback2);
-        editCashback3 = (EditText) findViewById(R.id.editCashback3);
+        editCashback3 = (EditText) findViewById(R.id.editCashback1);
         editCardName = (EditText) findViewById(R.id.editCardName);
         editBankName = (EditText) findViewById(R.id.editBankName);
         editCardNumber = (EditText) findViewById(R.id.editCardNumber);

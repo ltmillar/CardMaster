@@ -1,6 +1,5 @@
 package com.example.ltmillar.cardmaster;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,8 +33,11 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
         buttonConfirm = (Button) findViewById(R.id.buttonConfirm);
         buttonClear = (Button) findViewById(R.id.buttonClear);
         editCategory1 = (EditText) findViewById(R.id.editCategory1);
+        editCategory1.setText("Gas");
         editCategory2 = (EditText) findViewById(R.id.editCategory2);
+        editCategory2.setText("Grocery");
         editCategory3 = (EditText) findViewById(R.id.editCategory3);
+        editCategory3.setText("eCommerce");
         editCashback1 = (EditText) findViewById(R.id.editCashback1);
         editCashback2 = (EditText) findViewById(R.id.editCashback2);
         editCashback3 = (EditText) findViewById(R.id.editCashback3);
@@ -44,6 +45,21 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
         editBankName = (EditText) findViewById(R.id.editBankName);
         editCardNumber = (EditText) findViewById(R.id.editCardNumber);
         editExpDate = (EditText) findViewById(R.id.editExpDate);
+
+
+        Intent intent = getIntent();
+        Card card = new Card();
+        card = intent.getParcelableExtra("Card");
+
+
+
+        editCardName.setText(card.getCardName());
+        editBankName.setText(card.getBankName());
+        editExpDate.setText(card.getCardExpDate());
+        editCardNumber.setText(card.getCardLastFourNumber());
+        editCashback1.setText(card.getCategory1Percent());
+        editCashback2.setText(card.getCategory2Percent());
+        editCashback3.setText(card.getCategory3Percent());
 
         buttonClear.setOnClickListener(this);
         buttonConfirm.setOnClickListener(this);
@@ -121,11 +137,11 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
             String bankName = editBankName.getText().toString();
             String cardNumber = editCardNumber.getText().toString();
             String cardExpDate = editExpDate.getText().toString();
-            String categoryGroceryPerc = editCashback1.getText().toString();
-            String categoryGasPerc = editCashback2.getText().toString();
+            String categoryGasPerc = editCashback1.getText().toString();
+            String categoryGroceryPerc = editCashback2.getText().toString();
             String categoryeCommPerc = editCashback3.getText().toString();
 
-            Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, categoryGroceryPerc, categoryGasPerc, categoryeCommPerc);
+            Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, categoryGasPerc, categoryGroceryPerc, categoryeCommPerc);
             cardRef.push().setValue(myCard);
             Toast.makeText(EditCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
 

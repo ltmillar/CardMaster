@@ -1,6 +1,5 @@
 package com.example.ltmillar.cardmaster;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,20 +28,32 @@ public class EditCardPop extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_card_pop);
+        setContentView(R.layout.activity_edit_card);
 
         buttonConfirm = (Button) findViewById(R.id.buttonConfirm);
         buttonClear = (Button) findViewById(R.id.buttonClear);
         editCategory1 = (EditText) findViewById(R.id.editCategory1);
+        editCategory1.setText("Gas");
         editCategory2 = (EditText) findViewById(R.id.editCategory2);
+        editCategory2.setText("Grocery");
         editCategory3 = (EditText) findViewById(R.id.editCategory3);
-        editCashback1 = (EditText) findViewById(R.id.editCashback1);
+        editCategory3.setText("eCommerce");
+        editCashback1 = (EditText) findViewById(R.id.editCashback2);
         editCashback2 = (EditText) findViewById(R.id.editCashback2);
-        editCashback3 = (EditText) findViewById(R.id.editCashback3);
+        editCashback3 = (EditText) findViewById(R.id.editCashback1);
         editCardName = (EditText) findViewById(R.id.editCardName);
         editBankName = (EditText) findViewById(R.id.editBankName);
         editCardNumber = (EditText) findViewById(R.id.editCardNumber);
         editExpDate = (EditText) findViewById(R.id.editExpDate);
+
+        Intent intent = getIntent();
+        Card card = intent.getParcelableExtra("Card");
+
+        if (card.getCardName() == null){
+
+        } else {
+            editCardName.setText(card.getCardName());
+        }
 
         buttonClear.setOnClickListener(this);
         buttonConfirm.setOnClickListener(this);
