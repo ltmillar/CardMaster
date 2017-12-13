@@ -75,9 +75,9 @@
 
     <Button
         android:id="@+id/buttonWhichCard"
-        android:layout_width="wrap_content"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
-        android:text="Which Card Should I use?"
+        android:text="Which Card Should I Use?"
         app:layout_constraintBottom_toTopOf="@+id/textViewSearchResults"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
