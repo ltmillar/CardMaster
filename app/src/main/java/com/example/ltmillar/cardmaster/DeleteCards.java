@@ -156,7 +156,7 @@ public class DeleteCards extends AppCompatActivity implements View.OnClickListen
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        final DatabaseReference myRef = database.getReference("Users").child(user.getUid()).child("Books");
+        final DatabaseReference myRef = database.getReference("Users").child(user.getUid()).child("Cards");
 
         selectedItem = adapterView.getItemAtPosition(i).toString();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -167,7 +167,29 @@ public class DeleteCards extends AppCompatActivity implements View.OnClickListen
             public void onClick(DialogInterface dialog, int which) {
                 adapter.remove(selectedItem);
                 adapter.notifyDataSetChanged();
-                myRef.orderByChild("cardName").equalTo(selectedItem).addValueEventListener(new ValueEventListener() {
+                myRef.orderByChild("cardName").equalTo(selectedItem).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getValue() == null){
+                            Toast.makeText(DeleteCards.this, "Card Not Found", Toast.LENGTH_SHORT).show();
+                        } else {
+                            for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                                String foundCard = snapshot.child("cardName").getValue().toString();
+                                if (foundCard.equals(selectedItem)){
+                                    snapshot.getRef().removeValue();
+
+                                }
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+ /*                       addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot cardObject: dataSnapshot.getChildren()) {
@@ -181,7 +203,7 @@ public class DeleteCards extends AppCompatActivity implements View.OnClickListen
 
                     }
                 });
-                Toast.makeText(getApplicationContext(), selectedItem+ " has been removed", Toast.LENGTH_SHORT).show();
+*/                Toast.makeText(getApplicationContext(), selectedItem+ " has been removed", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
