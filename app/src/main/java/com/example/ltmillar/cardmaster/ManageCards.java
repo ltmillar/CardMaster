@@ -184,6 +184,7 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                             Card passCard = new Card();
                             passCard = dataSnapshot.getValue(Card.class);
+                            goToEditCard(passCard);
 
                         }
 
@@ -215,16 +216,20 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
 
             }
         });
-        Card newCard = new Card("name", "bankname", "cardnum", "exp", "cat1", "cat2", "cat3");
-        Intent goToCard = new Intent(ManageCards.this, EditCard.class);
-        goToCard.putExtra("Card", newCard);
-// this is crashing
-                this.startActivity(goToCard);
+
+
 
 
         //goToCard.putExtra("X","Y");
         //this.startActivity(goToCard);
         Toast.makeText(ManageCards.this, "You clicked" + listViewCard.getItemAtPosition(i), Toast.LENGTH_SHORT).show();
+    }
+    public void goToEditCard(Card parcelCard){
+        Intent goToCard = new Intent(ManageCards.this, EditCard.class);
+        goToCard.putExtra("Card", parcelCard);
+// this is crashing
+        this.startActivity(goToCard);
+
     }
 
 }
