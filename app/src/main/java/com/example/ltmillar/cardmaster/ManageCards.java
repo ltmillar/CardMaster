@@ -41,6 +41,7 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
     private ListView listViewCard;
     private String selectedItem;
     private final Context context = this;
+    private String passCard;
 
     ArrayList<String> list = new ArrayList<>();
     ArrayAdapter<String> adapter;
@@ -156,8 +157,8 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
 
         if (v == buttonAddCard) {
             Intent goToEditCards = new Intent(this, EditCard.class);
-            Card blankCard = new Card("","","","","","","");
-            goToEditCards.putExtra("Card", blankCard);
+           // Card blankCard = new Card("","","","","","","");
+            //goToEditCards.putExtra("Card", blankCard);
             this.startActivity(goToEditCards);
         } else if (v == buttonDelete) {
             Intent goToDelete = new Intent (this, DeleteCards.class);
@@ -182,8 +183,8 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
                     myRef.orderByChild("cardName").equalTo(cardLookup).addChildEventListener(new ChildEventListener() {
                         @Override
                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                            Card passCard = new Card();
-                            passCard = dataSnapshot.getValue(Card.class);
+                            //Card passCard = new Card();
+                            passCard = dataSnapshot.getKey();
                             goToEditCard(passCard);
 
                         }
@@ -224,9 +225,9 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
         //this.startActivity(goToCard);
         Toast.makeText(ManageCards.this, "You clicked" + listViewCard.getItemAtPosition(i), Toast.LENGTH_SHORT).show();
     }
-    public void goToEditCard(Card parcelCard){
+    public void goToEditCard(String parcelCard){
         Intent goToCard = new Intent(ManageCards.this, EditCard.class);
-        goToCard.putExtra("Card", parcelCard);
+        goToCard.putExtra("Card Key", parcelCard);
 // this is crashing
         this.startActivity(goToCard);
 
