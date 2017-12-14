@@ -61,9 +61,9 @@
         android:layout_alignBottom="@+id/textViewCashback"
         android:layout_alignLeft="@+id/editCardNumber"
         android:layout_alignStart="@+id/editCardNumber"
-        android:background="@android:color/holo_blue_dark"
         android:text="Category"
-        android:textColor="@android:color/black"
+        android:background="@color/darker_turquoise"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="12dp"
         tools:layout_editor_absoluteY="218dp" />
@@ -76,10 +76,10 @@
         android:layout_alignEnd="@+id/editCashback1"
         android:layout_alignRight="@+id/editCashback1"
         android:layout_marginBottom="16dp"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@color/darker_turquoise"
+        android:textColor="@android:color/white"
         android:text="Cashback (%)"
         android:textColorHint="@android:color/black"
-        android:textColor="@android:color/black"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="227dp"
         tools:layout_editor_absoluteY="218dp" />
@@ -182,25 +182,27 @@
 
     <Button
         android:id="@+id/buttonConfirm"
-        android:layout_width="fill_parent"
+        android:layout_width="315dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonClear"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@drawable/button_main"
+        android:textColor="@color/darker_turquoise"
         android:text="Confirm"
-        android:textColor="@android:color/black"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="421dp" />
 
     <Button
         android:id="@+id/buttonClear"
-        android:layout_width="fill_parent"
+        android:layout_width="315dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/buttonConfirm"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/buttonConfirm"
         android:layout_marginBottom="60dp"
+        android:background="#30FFFFFF"
+        android:textColor="@color/darker_turquoise"
         android:text="Update Card"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="484dp" />
