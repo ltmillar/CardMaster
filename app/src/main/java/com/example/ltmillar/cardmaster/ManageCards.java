@@ -156,10 +156,8 @@ public class ManageCards extends AppCompatActivity implements View.OnClickListen
         DatabaseReference myRef = database.getReference("card");
 
         if (v == buttonAddCard) {
-            Intent goToEditCards = new Intent(this, EditCard.class);
-           // Card blankCard = new Card("","","","","","","");
-            //goToEditCards.putExtra("Card", blankCard);
-            this.startActivity(goToEditCards);
+            Intent goToAddCard = new Intent(this, AddCard.class);
+            this.startActivity(goToAddCard);
         } else if (v == buttonDelete) {
             Intent goToDelete = new Intent (this, DeleteCards.class);
             this.startActivity(goToDelete);

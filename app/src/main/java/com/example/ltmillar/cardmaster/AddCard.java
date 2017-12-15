@@ -21,21 +21,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class EditCard extends AppCompatActivity implements View.OnClickListener {
+public class AddCard extends AppCompatActivity implements View.OnClickListener {
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
-    private Button buttonConfirm, buttonClear;
+    private Button buttonClear;
     private EditText editCategory1, editCategory2, editCategory3, editCashback1, editCashback2;
     private EditText editCashback3, editCardName, editBankName, editCardNumber, editExpDate;
-    private String cardID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_card);
+        setContentView(R.layout.activity_add_card);
 
-        buttonConfirm = (Button) findViewById(R.id.buttonConfirm);
         buttonClear = (Button) findViewById(R.id.buttonClear);
         editCategory1 = (EditText) findViewById(R.id.editCategory1);
         editCategory1.setText("Gas");
@@ -52,42 +50,11 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
         editExpDate = (EditText) findViewById(R.id.editExpDate);
 
 
-        Intent intent = getIntent();
-
-        cardID = intent.getStringExtra("Card Key");
-
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        final DatabaseReference cardRef = db.getReference().child("Users").child(user.getUid()).child("Cards").child(cardID);
-        cardRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Card card = new Card();
-                card = dataSnapshot.getValue(Card.class);
-
-                editCardName.setText(card.getCardName());
-                editBankName.setText(card.getBankName());
-                editExpDate.setText(card.getCardExpDate());
-                editCardNumber.setText(card.getCardLastFourNumber());
-                editCashback1.setText(card.getCategory1Percent());
-                editCashback2.setText(card.getCategory2Percent());
-                editCashback3.setText(card.getCategory3Percent());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
         buttonClear.setOnClickListener(this);
-        buttonConfirm.setOnClickListener(this);
 
 // Customized tool bar begins
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mActionBarToolbar.setTitle("Edit Card");
+        mActionBarToolbar.setTitle("Add a Card");
         setSupportActionBar(mActionBarToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 // Customized tool bar ends
@@ -112,19 +79,19 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
 
                         switch (item.getItemId()) {
                             case R.id.menu_home:
-                                startActivity(new Intent(EditCard.this, HomeScreen.class));
+                                startActivity(new Intent(AddCard.this, HomeScreen.class));
                                 return true;
 
                             case R.id.menu_search:
-                                startActivity(new Intent(EditCard.this, Search.class));
+                                startActivity(new Intent(AddCard.this, Search.class));
                                 return true;
 
                             case R.id.menu_cards:
-                                startActivity(new Intent(EditCard.this, ManageCards.class));
+                                startActivity(new Intent(AddCard.this, ManageCards.class));
                                 return true;
 
                             case R.id.menu_profile:
-                                startActivity(new Intent(EditCard.this, Profile.class));
+                                startActivity(new Intent(AddCard.this, Profile.class));
                                 return true;
 
                         }
@@ -140,44 +107,9 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
         //Initializing Firebase database
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        final DatabaseReference cardRef = db.getReference().child("Users").child(user.getUid()).child("Cards").child(cardID);
-
-        if (view == buttonClear) {
-        //final String cardLookupName = editCardName.getText().toString();
-        //cardRef.orderByChild("cardName").equalTo(cardLookupName).addListenerForSingleValueEvent(new ValueEventListener() {
-        cardRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.getValue() == null) {
-                    Toast.makeText(EditCard.this, "Card Not Found", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(EditCard.this, "Card Updated!", Toast.LENGTH_SHORT).show();
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                        Card updateCard = new Card();
-                        //a@updateCard = snapshot.getValue(Card.class);
-                        updateCard.cardName = editCardName.getText().toString();
-                        updateCard.bankName = editBankName.getText().toString();
-                        updateCard.cardExpDate = editExpDate.getText().toString();
-                        updateCard.cardLastFourNumber = editCardNumber.getText().toString();
-                        updateCard.category1Percent = editCashback1.getText().toString();
-                        updateCard.category2Percent = editCashback2.getText().toString();
-                        updateCard.category3Percent = editCashback3.getText().toString();
-
-                        //a@aString cardKey = snapshot.getKey();
-                        cardRef.setValue(updateCard);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+        final DatabaseReference cardRef = db.getReference().child("Users").child(user.getUid()).child("Cards");
 
 
-
-        } else if (view == buttonConfirm) {
             String cardName = editCardName.getText().toString();
             String bankName = editBankName.getText().toString();
             String cardNumber = editCardNumber.getText().toString();
@@ -188,9 +120,9 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
 
             Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, categoryGasPerc, categoryGroceryPerc, categoryeCommPerc);
             cardRef.push().setValue(myCard);
-            Toast.makeText(EditCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AddCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
 
-        }
+
 
     }
 }
