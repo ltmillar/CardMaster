@@ -25,7 +25,7 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
     Toolbar mActionBarToolbar;
     private int mMenuId;
     private BottomNavigationView mBtmView;
-    private Button buttonConfirm, buttonClear;
+    private Button buttonClear;
     private EditText editCategory1, editCategory2, editCategory3, editCashback1, editCashback2;
     private EditText editCashback3, editCardName, editBankName, editCardNumber, editExpDate;
     private String cardID;
@@ -35,7 +35,7 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_card);
 
-        buttonConfirm = (Button) findViewById(R.id.buttonConfirm);
+
         buttonClear = (Button) findViewById(R.id.buttonClear);
         editCategory1 = (EditText) findViewById(R.id.editCategory1);
         editCategory1.setText("Gas");
@@ -83,7 +83,7 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
 
 
         buttonClear.setOnClickListener(this);
-        buttonConfirm.setOnClickListener(this);
+
 
 // Customized tool bar begins
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -176,19 +176,6 @@ public class EditCard extends AppCompatActivity implements View.OnClickListener 
         });
 
 
-
-        } else if (view == buttonConfirm) {
-            String cardName = editCardName.getText().toString();
-            String bankName = editBankName.getText().toString();
-            String cardNumber = editCardNumber.getText().toString();
-            String cardExpDate = editExpDate.getText().toString();
-            String categoryGasPerc = editCashback1.getText().toString();
-            String categoryGroceryPerc = editCashback2.getText().toString();
-            String categoryeCommPerc = editCashback3.getText().toString();
-
-            Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, categoryGasPerc, categoryGroceryPerc, categoryeCommPerc);
-            cardRef.push().setValue(myCard);
-            Toast.makeText(EditCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
 
         }
 
