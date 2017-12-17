@@ -126,9 +126,13 @@ public class AddCard extends AppCompatActivity implements View.OnClickListener {
                     String categoryGroceryPerc = editCashback2.getText().toString();
                     String categoryeCommPerc = editCashback3.getText().toString();
 
-                    Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, categoryGasPerc, categoryGroceryPerc, categoryeCommPerc);
-                    cardRef.push().setValue(myCard);
-                    Toast.makeText(AddCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
+                    if (cardName.length() == 0 || bankName.length() == 0 || cardNumber.length() == 0) {
+                        Toast.makeText(AddCard.this, "Please Enter Complete Details", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, categoryGasPerc, categoryGroceryPerc, categoryeCommPerc);
+                        cardRef.push().setValue(myCard);
+                        Toast.makeText(AddCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     Toast.makeText(AddCard.this, "Card Already Exists! Try a different name!!", Toast.LENGTH_SHORT).show();
                 }
