@@ -102,26 +102,44 @@ public class AddCard extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    public void onClick (View view) {
+    public void onClick(View view) {
 
         //Initializing Firebase database
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final DatabaseReference cardRef = db.getReference().child("Users").child(user.getUid()).child("Cards");
 
+        //final DatabaseReference cardRef = db.getReference().child("Users").child(user.getUid()).child("Cards").child(cardID);
 
-            String cardName = editCardName.getText().toString();
-            String bankName = editBankName.getText().toString();
-            String cardNumber = editCardNumber.getText().toString();
-            String cardExpDate = editExpDate.getText().toString();
-            String categoryGasPerc = editCashback1.getText().toString();
-            String categoryGroceryPerc = editCashback2.getText().toString();
-            String categoryeCommPerc = editCashback3.getText().toString();
 
-            Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, categoryGasPerc, categoryGroceryPerc, categoryeCommPerc);
-            cardRef.push().setValue(myCard);
-            Toast.makeText(AddCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
+        final String cardLookupName = editCardName.getText().toString();
+        cardRef.orderByChild("cardName").equalTo(cardLookupName).addListenerForSingleValueEvent(new ValueEventListener() {
+            //cardRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() == null) {
+                    String cardName = editCardName.getText().toString();
+                    String bankName = editBankName.getText().toString();
+                    String cardNumber = editCardNumber.getText().toString();
+                    String cardExpDate = editExpDate.getText().toString();
+                    String categoryGasPerc = editCashback1.getText().toString();
+                    String categoryGroceryPerc = editCashback2.getText().toString();
+                    String categoryeCommPerc = editCashback3.getText().toString();
 
+                    Card myCard = new Card(cardName, bankName, cardNumber, cardExpDate, categoryGasPerc, categoryGroceryPerc, categoryeCommPerc);
+                    cardRef.push().setValue(myCard);
+                    Toast.makeText(AddCard.this, "Card Added Successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(AddCard.this, "Card Already Exists! Try a different name!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+        });
 
 
     }
